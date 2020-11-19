@@ -1,0 +1,1 @@
+This is generated from NodeJS' fs module: Hello from NodeJS
