@@ -21,6 +21,9 @@ Contains all the important and necessary details to know what Node JS is, and ho
 
 - To check the version of Node JS installed in your system, in the terminal, type in the command: `node -v` or `node`, to know the version or run the Node Runtime respectively.
 - To compile a JavaScript File, we can use the Node JS Runtime to compile using the command: `node <file-name>.js`. Example: `node first-app.js`. The Node JS compiler will compile it using the V8 Engine and show the output in the terminal.
+- We can run NodeJS in two modes:
+  - REPL Mode: Stands for **Read Evaluate Print Loop**, *i.e.*, *Read the Input*, *Evaluate the Input*, *Print the Output* & *Loop back to Reading the Input*. We can use REPL mode to test new feature or use it as a playground to understand how a snippet of code works. We can use it in a terminal by simply typing in `node` command and pressing enter. Once exited from the REPL mode, the code is gone, because it is not saved anywhere on the local system.
+  - File Mode: To compile and run a JS file, we use NodeJS in the terminal with the command `node <file-name>.ext`. Examples: `node first-app.js`, `node second-app.ts`, etc. We can save the code we write in files, and so, we can obviously see why this mode is preferred more. This mode is used for Real Apps.
 
 ## Role & Usage of NodeJS
 
