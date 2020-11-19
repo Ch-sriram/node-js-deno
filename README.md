@@ -2,6 +2,11 @@
 
 Repository contains concepts and code related to Node JS (Vanilla Node, Express Framework, REST APIs, GraphQL, Websockets & More...) & Deno, both as a Runtime Environment.
 
+## References
+
+- **[NodeJS Course](https://www.udemy.com/course/nodejs-the-complete-guide/)** by **[Maximilian Schwarzmüller](https://twitter.com/maxedapps?s=20)**
+- **[NodeJS Documentation](https://nodejs.org/en/docs/)**
+
 ## Details on NodeJS
 
 - **[What is NodeJS?](./node-first-app/README.md#what-is-nodejs)**
