@@ -7,6 +7,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[What is NodeJS?](./node-first-app/README.md#what-is-nodejs)**
 - **[Software Requirements](./node-first-app/README.md#software-requirements)**
 - **[Compiler Details](./node-first-app/README.md#compiler-details)**
+- **[Role & Usage of NodeJS](./node-first-app/README.md#role--usage-of-nodejs)**
 
 ## Table of Contents ©
 
