@@ -27,4 +27,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 ### Understanding Basics
 
 1. Creating a Node Server: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/40982d85b9387018a88b9e8c1975eba1dd8429f2)
-2. The Node Lifecycle & Event Loop: [Commit Details]()
+2. The Node Lifecycle & Event Loop: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/5f8c03b229e23561949ba64772a85c334322ea6a)
