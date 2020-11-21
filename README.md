@@ -13,6 +13,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Software Requirements](./node-first-app/README.md#software-requirements)**
 - **[Compiler Details](./node-first-app/README.md#compiler-details)**
 - **[Role & Usage of NodeJS](./node-first-app/README.md#role--usage-of-nodejs)**
+- **[Node Lifecycle & Event Loop](./understanding-basics/README.md#node-lifecycle--event-loop)**
 
 ## Table of Contents ©
 
@@ -27,4 +28,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 ### Understanding Basics
 
 1. Creating a Node Server: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/40982d85b9387018a88b9e8c1975eba1dd8429f2)
-2. The Node Lifecycle & Event Loop: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/5f8c03b229e23561949ba64772a85c334322ea6a)
+2. The Node Lifecycle & Event Loop: **[READ THIS BEFORE MOVING AHEAD](./understanding-basics/README.md#node-lifecycle--event-loop)** | [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/5f8c03b229e23561949ba64772a85c334322ea6a)
