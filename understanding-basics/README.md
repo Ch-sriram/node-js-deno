@@ -1,0 +1,15 @@
+# Basics of Node JS
+
+- The Node Lifecycle & Event Loop
+
+## Node Lifecycle & Event Loop
+
+![Node Lifecycle & Event Loop](./images/node-lifecycle-event-driven.png)
+
+- The code inside **[here](https://github.com/Ch-sriram/node-js-deno/blob/40982d85b9387018a88b9e8c1975eba1dd8429f2/understanding-basics/app.js)**, doesn't do everything we expect, *i.e.*, it doesn't return some kind of a response from the server, but it's generally showing us, how we create our own servers using NodeJS.
+- When we typed in `node app.js` in the terminal and started the server, NodeJS **started the script**, **compiled** (*parsed code* & *registered variables* and *functions*) the code and started **executing the code**.
+- But then something important happened, we never left that program, and the reason for that is because of an important concept in NodeJS called the **Event Loop**. Event Loop is a looping process which is managed by NodeJS, which keeps on running as long as there's work to do (*i.e.*, as long as there are event listeners registered). And the event listener we did register was there in the file **[here (line 93 in app.js)](https://github.com/Ch-sriram/node-js-deno/blob/40982d85b9387018a88b9e8c1975eba1dd8429f2/understanding-basics/app.js#L93)**, which we didn't un-register from (and we also shouldn't un-register, because servers are supposed to be up and running, always).
+- **So our Core Node Application is basically managed by the Event Loop**. And so, NodeJS has an **Event Driven** architecture, and NodeJS uses this kind of architecture/pattern because NodeJS actually executes **Single-Threaded JavaScript**. So the entire Node process basically uses 1 Thread on the computer it's running on.
+- So, if we create a server with NodeJS, we can ofcourse handle multiple thousands of incoming requests, and if we would always pause and do something with that request, it would not be that great, and hence, NodeJS uses this Event Loop concept where the server is always running and executes the respective code when a certain event occurs (and so in general, it's always available).
+- And it might still sound like, "we've two or more incoming requests, how's the NodeJS server going to handle the requests which will have two events triggering?", but well, NodeJS is super-fast in handling these requests and actually, **behind the scenes NodeJS uses some Multi-Threading by leveraging the C++ language and the OS**.
+- ***If we want to un-register the Event Loop***, we can do that using **`process.exit()`**, and the process running the NodeJS server will end. We can see this in action, **[here]()**. Typically, we never call `process.exit()` because we never want to kill the server process, as it should always be up and running to serve the required resources to the front-end. And so, if we want to go for a *hard exit* (which is not recommended), we write `process.exit()`.
