@@ -1,0 +1,24 @@
+{
+  "name": "understanding-basics",
+  "version": "1.0.0",
+  "description": "understanding the basics of nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --respawn src/index.ts",
+    "start:dev": "ts-node src/index.ts",
+    "start:tsc:dev": "tsc -w src/index.ts"
+  },
+  "keywords": [
+    "nodejs",
+    "fs",
+    "http"
+  ],
+  "author": "Chandrabhatta Sriram",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.14.14",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
