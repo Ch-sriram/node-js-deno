@@ -33,4 +33,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 3. Understanding the `request` object (`request.url`, `request.method` & `request.headers`): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/f0a220a00811a31132b580be45a50b2e44dd286b)
 4. Sending Responses using `response.write()` & `response.end()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/0f7b4b4e647a2c504cf9438c42cdbc3b41bf43cb#diff-9f8c87a053f47465defc2ede5990a09b615313f888333b1211bb762b7ac0122f)
 5. Diving deeper into the `request` object
-   1. Routing Requests using `request.url`: [Commit Details]()
+   1. Routing Requests using `request.url`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/814a2691ce922aeb2812e3588675bc555c2d1937)
