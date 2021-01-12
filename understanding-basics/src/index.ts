@@ -1,9 +1,10 @@
 import { IncomingMessage, ServerResponse } from 'http';
 
-// const http = require('http'); // legacy import style
+const http = require('http'); // legacy import style
 // import http = require('http'); // import style using typescript
-import http from 'http';
-import fs from 'fs';
+// import http from 'http';
+// import fs from 'fs';
+const fs = require('fs');
 
 const server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
   /**
@@ -22,7 +23,8 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
    * redirect the user back to '/' route and we will create a
    * new file and store the message the user entered, in that
    * particular file. We can work with a file using the 'fs'
-   * module.
+   * module. Before writing to the file and sending the 
+   * response, we'll want to get the request data.
    */
 
   const URL = req.url;
@@ -37,7 +39,7 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
       </head>
       <body>
         <form action="/message" method="POST">
-          <input type="text"/>
+          <input type="text" name="message"/>
           <button type="submit">Send</button>
         </form>
       </body>
@@ -63,7 +65,50 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
 
   // Handling the data sent to '/message' route
   if (URL === '/message' && METHOD === 'POST') {
-    fs.writeFileSync('message.txt', 'Some Dummy Text');
+    /**
+     * Before writing the file and sending back the response,
+     * we generally parse the request using an event listener.
+     * For http.createServer(), Node implicitly creates an 
+     * event listener for us, but now, we'll create an event
+     * listener using the request.on() method. 
+     * 
+     * Using `on()` method, we've 7 events we can listen on and
+     * they're: close, data, end, error, pause, readable and
+     * resume. For now, we'll only use the 'data' and 'end'
+     * events.
+     * 
+     * 'data' event signifies the trigger of an event when some
+     * kind of data is coming in the form of a request.
+     */
+    const body: any[] = []; // it is the request body and should be an array
+    req.on('data', (chunk: any) => {
+      // for every incoming chunk, we can process it here.
+      console.log(chunk); // <Buffer 6d 65 73 73 61 67 65 3d 48 65 6c 6c 6f 25 32 31>
+      body.push(chunk);
+    });
+
+    /**
+     * 'end' event listener is triggered when the end() is 
+     * called on the response, which means that the server is
+     * done parsing the incoming request.
+     */
+    req.on('end', () => {
+      /**
+       * In here, we can now interact with the `body` const 
+       * where the chunks are gathered from the request.
+       * 
+       * To interact with the `body`, which contains a stream
+       * of chunks (data) that we received from the requesting
+       * client/server, we now need to Buffer them using the
+       * 
+       */
+      const parsedBody = Buffer.concat(body).toString(); // `parsedBody` is now a buffer on which we can concatenate the buffered chunks and convert it to a string
+      console.log(parsedBody); // "message=Hello%21" will be the string if we typed in 'Hello!' in the <input/> inside the form above in '/' route. And we see 'message=' because we gave the <input/> element, name as 'message' above, in L42.
+
+      // Note that 'Hello!' is encoded as 'Hello%21' because that's how '!' is encoded in UTF-8 (or ASCII)
+      fs.writeFileSync('message.txt', parsedBody.split('=')[1]);
+    });
+
 
     // https://www.geeksforgeeks.org/node-js-response-writehead-method/
     // official doc: https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers

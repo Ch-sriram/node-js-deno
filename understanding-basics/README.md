@@ -1,6 +1,7 @@
 # Basics of Node JS
 
-- The Node Lifecycle & Event Loop
+- The Node Lifecycle & Event Loop.
+- Streams & Buffers.
 
 ## Node Lifecycle & Event Loop
 
@@ -13,3 +14,11 @@
 - So, if we create a server with NodeJS, we can ofcourse handle multiple thousands of incoming requests, and if we would always pause and do something with that request, it would not be that great, and hence, NodeJS uses this Event Loop concept where the server is always running and executes the respective code when a certain event occurs (and so in general, it's always available).
 - And it might still sound like, "we've two or more incoming requests, how's the NodeJS server going to handle the requests which will have two events triggering?", but well, NodeJS is super-fast in handling these requests and actually, **behind the scenes NodeJS uses some Multi-Threading by leveraging the C++ language and the OS**.
 - ***If we want to un-register the Event Loop***, we can do that using **`process.exit()`**, and the process running the NodeJS server will end. We can see this in action, **[here](https://github.com/Ch-sriram/node-js-deno/blob/5f8c03b229e23561949ba64772a85c334322ea6a/understanding-basics/app.js)**. Typically, we never call `process.exit()` because we never want to kill the server process, as it should always be up and running to serve the required resources to the front-end. And so, if we want to go for a *hard exit* (which is not recommended), we write `process.exit()`.
+
+## Streams & Buffers
+
+- The incoming data from a client is always sent as a *Stream* of data. ***Stream*** is a special construct JavaScript in general knows and in NodeJS it is used a lot.
+- There's a connected concept to *Streams*, which are known as *Buffers*. A good example can be well depicted using the following image: ![stream-buffer-example-1](./images/incoming-request-stream-buffer-example-1.png) Our *Stream* here is simply an ongoing process where the `Incoming Request` is read by NodeJS in ***chunks*** (as we can see *Request Body Part 1*, *Part 2* and so on...) and in the end, at some point of time, the request is completely received by the server and it is *Fully Parsed*.
+- And NodeJS request goes in a *Stream* as *chunks* because it is a deliberate ploy so that we can work on each chunk of data as we like without having to wait for the full request being read by the server (that's at least the theoretical aspect of it). For a simple request, this level of *handling every chunk of received data* is not required. But when we consider a file upload(s), then in that case, because it can take a long time to upload a/the file(s) &mdash; *Streaming that data* does make sense there because it would allow us at the server side, to writing the data we receive, to the disk/HDD/etc whilst the data is still incoming. So we don't need to parse the entire file (coming in chunks - which is ofcourse taking some time) and wait for it to complete the upload. And so, this is how NodeJS handles all requests because it doesn't know how complex and big they're.
+- We can start working on the data early, but the problem at the server is that we cannot arbitrarily try to work with these chunks. Instead, to organize these incoming chunks we can use a construct known as *Buffer*. A ***Buffer*** is like a bus stop. If we consider busses, they're always being driven around the city. But for the commuters (users) to be able to work with them to commute on the bus, they need bus stops where the commuters can get in and get out of the bus and hence interact with the bus. That's what a **Buffer** is. Therefore, a Buffer is a construct which allows the server to hold multiple chunks (from the stream of data being received) and work with them before they're released once we are done. And so, at the server-side, we generally work with the ***Buffer*** to handle the `Incoming Request` as seen below: ![stream-buffer-example-2](./images/incoming-request-stream-buffer-example-2.png)
+- Please look into this **[commit]()** to see how it works in practice.
