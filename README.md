@@ -38,4 +38,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
    3. Parsing Request Bodies using `request.on('data')`, `request.on('end')` & `Buffer.concat()`: [READ THIS BEFORE GOING AHEAD](./understanding-basics/README.md#streams--buffers) | [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/ca12eb612d904d107763ec504e03f74064fcb035)
 6. **Understanding Event Driven Code Execution** ⭐
    1. **[Writing Events That Would Eventually Error Out](./understanding-basics/README.md#event-driven-code-execution)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/blob/5f4d6c46a4137e31004e8489575a123c032fd26a/understanding-basics/src/index.ts#L109-L118)
-   2. **[Writing Events To Mitigate Errors]()**: [Commit Details]()
+   2. **[Writing Events To Mitigate Errors](./understanding-basics/README.md#event-driven-code-execution-writing-events-that-wont-error-out)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/86f0571879f47a6202d50251dca3d3374c83dabb)

@@ -57,4 +57,4 @@ We get an error for the way we coded above because NodeJS already set the header
 
 But this kind of setup is important, because otherwise, NodeJS would've to block the code below some callback and wait for the callback to be executed, which is NOT feasible, as servers need to handle multiple incoming requests at a time. Therefore, we NEVER want to BLOCK the execution of code. We always want to wait for the event to occur in the event loop and then once the event occurs, we should execute the event listener (or callback related to the event) [NOTE: 'we' here refers to NodeJS]. And so that way, the code execution is never blocked aka NON-BLOCKING Code Execution.
 
-For the code to not error out, we basically return the event at [L94 here]().
+For the code to not error out, we basically return the event at [L94 here](https://github.com/Ch-sriram/node-js-deno/commit/86f0571879f47a6202d50251dca3d3374c83dabb#diff-9f8c87a053f47465defc2ede5990a09b615313f888333b1211bb762b7ac0122fR94).
