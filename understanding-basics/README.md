@@ -29,11 +29,13 @@ NOTE: Following section is a must read to understand how we write code that can 
 
 - For a lot of people, it is a mystery how NodeJS as a server, executes the code. Because sometimes, the code that occurs before the code that appears after, may execute later compared to the code that appeared after. Simply put, [this LOC (L109)](https://github.com/Ch-sriram/node-js-deno/blob/eeefc58bec061fd67261ee1406b0d0b320cbd507/understanding-basics/src/index.ts#L109) can execute after [this LOC (L115)](https://github.com/Ch-sriram/node-js-deno/blob/eeefc58bec061fd67261ee1406b0d0b320cbd507/understanding-basics/src/index.ts#L115) [and it will actually execute in that order]. So code at L109 will execute after code in L115 *i.e.*, after we've already sent the response.
 - This has 2 important implications:
-  - Sending a response does NOT mean that our event listener(s) like in [this LOC](https://github.com/Ch-sriram/node-js-deno/blob/eeefc58bec061fd67261ee1406b0d0b320cbd507/understanding-basics/src/index.ts#L95) (*i.e.*, the callback function) are dead. They'll still execute even if the response is already gone. But it also means that if we do something in the event listener(s) like `request.on('end')` or `request.on('data')` (or any other event listener) that influences the response, the [code from L115 to L122](https://github.com/Ch-sriram/node-js-deno/blob/eeefc58bec061fd67261ee1406b0d0b320cbd507/understanding-basics/src/index.ts#L115-L122) is the wrong way to set it up. We should then also move the code that is related to response, into the event listener, as seen [here in this commit]().
-  - And it also means that it's extremely important to understand, that with event listeners like `request.on(<some-event>)` or code like: 
-  ```ts
+  - Sending a response does NOT mean that our event listener(s) like in [this LOC](https://github.com/Ch-sriram/node-js-deno/blob/eeefc58bec061fd67261ee1406b0d0b320cbd507/understanding-basics/src/index.ts#L95) (*i.e.*, the callback function) are dead. They'll still execute even if the response is already gone. But it also means that if we do something in the event listener(s) like `request.on('end')` or `request.on('data')` (or any other event listener) that influences the response, the [code from L115 to L122](https://github.com/Ch-sriram/node-js-deno/blob/eeefc58bec061fd67261ee1406b0d0b320cbd507/understanding-basics/src/index.ts#L115-L122) is the wrong way to set it up. We should then also move the code that is related to response, into the event listener, as seen [here in this commit from L111 to L118](https://github.com/Ch-sriram/node-js-deno/blob/b6328e61a459f7ea61e1d3ceef0582025063d672/understanding-basics/src/index.ts#L111-L118).
+  - And it also means that it's extremely important to understand, that with event listeners like `request.on(<some-event>)` or code like:
+
+  ```typescript
     http.createServer((req: IncomingMessage, res: ServerResponse) => { /** some return value */ });
   ```
+
   these are some examples where NodeJS uses a pattern where we pass a function to a function and NodeJS will execute these passed-in functions at a later point of time (since they're passed in as callback functions) which is/are called asynchronously.
 
   It is not always the case that a passed-in function to another function is necessarily executed at a later point of time, but NodeJS uses this kind of pattern heavily and so, a lot of backend code that uses NodeJS looks like this and so, it executes the code asynchronously.
@@ -43,12 +45,10 @@ NOTE: Following section is a must read to understand how we write code that can 
   Therefore, we can think of it as NodeJS having an internal registry of events and listeners to these events, and a callback passed to an event (`request.on()` & `http.createServer()`), is the listener. And so, when NodeJS is done parsing the request, it will go through the internal registry it maintains and see that once it done with the request, it will call the listeners that are related to the `end` event. Hence it will find all the listeners (callback functions) registered for the `end` event and call them asynchronously, due to that it will not pause the execution of any other code.
 
   **Example**
-  And so, we can see in [this commit here]() that NodeJS will start parsing from L1 to L8. At L8, NodeJS will register the callback/event-listener sent to `http.createServer((req, res) => {...})` and then it will jump to L146 where NodeJS starts listening to incoming request(s).
+  And so, we can see in [this file here](https://github.com/Ch-sriram/node-js-deno/blob/b6328e61a459f7ea61e1d3ceef0582025063d672/understanding-basics/src/index.ts) that NodeJS will start parsing from L1 to L8. At L8, NodeJS will register the callback/event-listener sent to `http.createServer((req, res) => {...})` and then it will jump to L146 where NodeJS starts listening to incoming request(s).
 
   As soon as NodeJS gets a request, it will call the registered callback/event-listener it registered when `createServer()` was called earlier and it starts executing L9 to L82 depending on what the request contains. At L83 & L94, NodeJS will register two events as seen in the code (along with their listeners/callbacks) and then it will start executing from L121 to L141. At L141, NodeJS sees that `response.end()` is called and so NodeJS will call the listener/callback related to the `end` event (which is code from L95 to L119). And in-between all this, if there's any request that is related to `data` event, the callback related to that will be called (which is code from L84 to L87).
 
   Because of the way NodeJS executes code, we've to be extremely careful of how we write code and on what events, what kind of listeners are to be called. This output of the code mentioned in the commit above is [here]() which will give errors.
 
 ### Event Driven Code Execution: Writing Events That Won't Error Out
-
-

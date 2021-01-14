@@ -144,3 +144,18 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
 });
 
 server.listen(3000);
+
+/**
+ * OUTPUT
+ * ''''''
+ * <Buffer 6d 65 73 73 61 67 65 3d 48 65 6c 6c 6f 25 32 31>
+ * message=Hello%21
+ * Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+ *    at ServerResponse.setHeader (_http_outgoing.js:518:11)
+ *    at ServerResponse.writeHead (_http_server.js:273:21)
+ *    at IncomingMessage.<anonymous> (C:\Users\srira\Desktop\repos\node-js-deno\understanding-basics\src\index.ts:111:11)
+ *    at IncomingMessage.emit (events.js:327:22)
+ *    at endReadableNT (_stream_readable.js:1220:12)
+ *    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+ * [ERROR] 14:16:40 Error: Cannot set headers after they are sent to the client
+ */
