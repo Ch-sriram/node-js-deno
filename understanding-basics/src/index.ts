@@ -1,10 +1,9 @@
 import { IncomingMessage, ServerResponse } from 'http';
 
-const http = require('http'); // legacy import style
+// const http = require('http'); // legacy import style
 // import http = require('http'); // import style using typescript
-// import http from 'http';
-// import fs from 'fs';
-const fs = require('fs');
+import http from 'http';
+import fs from 'fs';
 
 const server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
   /**
@@ -107,19 +106,17 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
 
       // Note that 'Hello!' is encoded as 'Hello%21' because that's how '!' is encoded in UTF-8 (or ASCII)
       fs.writeFileSync('message.txt', parsedBody.split('=')[1]);
+      // https://www.geeksforgeeks.org/node-js-response-writehead-method/
+      // official doc: https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers
+      res.writeHead(302, 'redirecting from \'/\' to \'/\'', { 'Location': '/' });
+  
+      // We can also expand and write the following code instead of using writeHead method as follows:
+      // res.statusCode = 302;
+      // res.setHeader('Location', '/');
+  
+      // since we don't want to execute anything after this if block, we'll just write the foll. LOC.
+      return res.end('OK');
     });
-
-
-    // https://www.geeksforgeeks.org/node-js-response-writehead-method/
-    // official doc: https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers
-    res.writeHead(302, 'redirecting from \'/\' to \'/\'', { 'Location': '/' });
-
-    // We can also expand and write the following code instead of using writeHead method as follows:
-    // res.statusCode = 302;
-    // res.setHeader('Location', '/');
-
-    // since we don't want to execute anything after this if block, we'll just write the foll. LOC.
-    return res.end('OK');
   }
   
   // https://nodejs.org/api/http.html#http_response_setheader_name_value

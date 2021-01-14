@@ -36,3 +36,6 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
    1. Routing Requests using `request.url`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/814a2691ce922aeb2812e3588675bc555c2d1937)
    2. Redirecting Requests `request.url && request.method` by using `fs.writeFileSync` along with `response.writeHead()` (or `response.setHeader()` / `response.statusCode`) to write a to a file on a specific route: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/041b81860b1f2ba15cac6612c2ae01bf61390f6d)
    3. Parsing Request Bodies using `request.on('data')`, `request.on('end')` & `Buffer.concat()`: [READ THIS BEFORE GOING AHEAD](./understanding-basics/README.md#streams--buffers) | [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/ca12eb612d904d107763ec504e03f74064fcb035)
+6. **Understanding Event Driven Code Execution** ⭐
+   1. **[Writing Events That Would Eventually Error Out](./understanding-basics/README.md#event-driven-code-execution)**: [Commit Details]()
+   2. **[Writing Events To Mitigate Errors]()**: [Commit Details]()
