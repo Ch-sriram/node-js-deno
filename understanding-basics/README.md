@@ -49,6 +49,12 @@ NOTE: Following section is a must read to understand how we write code that can 
 
   As soon as NodeJS gets a request, it will call the registered callback/event-listener it registered when `createServer()` was called earlier and it starts executing L9 to L82 depending on what the request contains. At L83 & L94, NodeJS will register two events as seen in the code (along with their listeners/callbacks) and then it will start executing from L121 to L141. At L141, NodeJS sees that `response.end()` is called and so NodeJS will call the listener/callback related to the `end` event (which is code from L95 to L119). And in-between all this, if there's any request that is related to `data` event, the callback related to that will be called (which is code from L84 to L87).
 
-  Because of the way NodeJS executes code, we've to be extremely careful of how we write code and on what events, what kind of listeners are to be called. This output of the code mentioned in the commit above is [here]() which will give errors.
+  Because of the way NodeJS executes code, we've to be extremely careful of how we write code and on what events, what kind of listeners are to be called. This output of the code mentioned in the commit above is [here](https://github.com/Ch-sriram/node-js-deno/blob/5f4d6c46a4137e31004e8489575a123c032fd26a/understanding-basics/src/index.ts#L148-L161) which will give errors.
 
 ### Event Driven Code Execution: Writing Events That Won't Error Out
+
+We get an error for the way we coded above because NodeJS already set the headers in [L123 here](https://github.com/Ch-sriram/node-js-deno/blob/5f4d6c46a4137e31004e8489575a123c032fd26a/understanding-basics/src/index.ts#L123). And so, the headers that are set after the occurring of the `end` event, would error out. One of them is in [L111 here](https://github.com/Ch-sriram/node-js-deno/blob/5f4d6c46a4137e31004e8489575a123c032fd26a/understanding-basics/src/index.ts#L111).
+
+But this kind of setup is important, because otherwise, NodeJS would've to block the code below some callback and wait for the callback to be executed, which is NOT feasible, as servers need to handle multiple incoming requests at a time. Therefore, we NEVER want to BLOCK the execution of code. We always want to wait for the event to occur in the event loop and then once the event occurs, we should execute the event listener (or callback related to the event) [NOTE: 'we' here refers to NodeJS]. And so that way, the code execution is never blocked aka NON-BLOCKING Code Execution.
+
+For the code to not error out, we basically return the event at [L94 here]().
