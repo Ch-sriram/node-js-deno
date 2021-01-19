@@ -3,7 +3,7 @@ import { IncomingMessage, ServerResponse } from 'http';
 // const http = require('http'); // legacy import style
 // import http = require('http'); // another import style using typescript
 import http from 'http';
-import fs from 'fs';
+import fs, { writeFile } from 'fs';
 
 const server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
   const URL = req.url;
@@ -36,13 +36,72 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
       body.push(chunk);
     });
     return req.on('end', () => {
+      // Buffer is a globally available NodeJS object
       const parsedBody = Buffer.concat(body).toString(); // `parsedBody` is now a buffer on which we can concatenate the buffered chunks and convert it to a string
       console.log(parsedBody);
-      fs.writeFileSync('message.txt', parsedBody.split('=')[1]);
-      // https://www.geeksforgeeks.org/node-js-response-writehead-method/
-      // official doc: https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers
-      res.writeHead(302, 'redirecting from \'/\' to \'/\'', { 'Location': '/' }); // or, we can also write: res.statusCode = 302; res.setHeader('Location', '/');
-      return res.end('OK');
+      // fs.writeFileSync('message.txt', parsedBody.split('=')[1]);
+      /**
+       * Is there anything wrong with the writeFileSync() 
+       * method in L42 ? -> Yes, there is something wrong with
+       * that method and it is the word 'Sync', which means
+       * 'Synchronous', and so, writeFileSync() is a method
+       * which runs synchronously, which means that it will 
+       * BLOCK the execution of the code below, and so, that's
+       * a piece of BLOCKING Code which should not be used when
+       * writing code to run a server that has to handle 
+       * multiple requests at once.
+       * 
+       * Especially when we are writing to a file, we don't 
+       * know how much data we are going to receive in the 
+       * request body. And so, we don't know how long it will
+       * take to write the data to the file, so this particular
+       * operation should be NON-BLOCKING (i.e., asynchronous).
+       * 
+       * And so, we make use of another method called 
+       * writeFile(), which is NON-BLOCKING and also takes in 
+       * a callback in which we can write code that runs post
+       * the writeFile() method's execution.
+       */
+      writeFile('message.txt', parsedBody.split('=')[1] + '\n', (_err: any) => {
+        // the 'err' object will be null if there are no errors
+        // If there's any error, then we can handle it by 
+        // sending a different kind of response, otherwise we 
+        // return a normal response.
+
+        // For now, we won't do error handling and move the 
+        // the normal response (which was outside before) into
+        // this callback as seen below:
+        
+        // https://www.geeksforgeeks.org/node-js-response-writehead-method/
+        // official doc: https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers
+        res.writeHead(302, 'redirecting from \'/\' to \'/\'', { 'Location': '/' }); // or, we can also write: res.statusCode = 302; res.setHeader('Location', '/');
+        return res.end('OK');
+      });
+
+      /**
+       * This response should only be sent when the file is
+       * completely written to where it should've been written
+       * to. In NodeJS, Event-Driven Architecture is a standard
+       * practice where we basically define event listeners for
+       * different events. 
+       * 
+       * So whenever an event occurs, NodeJS goes through its 
+       * registry to find the appropriate event listener and 
+       * then offload that process to the OS which does use 
+       * multi-threading internally. And then NodeJS continues 
+       * with its event loop to listen for more event callback
+       * and it always just dispatches the actions (event 
+       * listeners delegated to the OS using multi-threading)
+       * to never block the code execution (NON-BLOCKING) and
+       * then always just free up the resource (threads) once 
+       * the operation is done by the OS.
+       * 
+       * And so this is the reason why NodeJS as a backend 
+       * service is such high performant, as it is Executes
+       * in a NON-BLOCKING way, Runs in an Event-Driven 
+       * Fashion and delegates the tasks to the OS using the 
+       * event loop.
+       */
     });
   }
   
@@ -60,10 +119,3 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
 });
 
 server.listen(3000);
-
-/**
- * OUTPUT on '/' route
- * '''''''''''''''''''
- * <Buffer 6d 65 73 73 61 67 65 3d 48 65 6c 6c 6f 25 32 31>
- * message=Hello%21
- */
