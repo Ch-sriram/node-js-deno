@@ -15,6 +15,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Role & Usage of NodeJS](./node-first-app/README.md#role--usage-of-nodejs)**
 - **[Node Lifecycle & Event Loop](./understanding-basics/README.md#node-lifecycle--event-loop)**
 - **[Running NodeJS + TypeScript](https://khalilstemmler.com/blogs/typescript/node-starter-project/)**
+- **[NodeJS &mdash; Behind the Scenes: Single Thread, Event Loop & Blocking Code (Deep Dive)](./understanding-basics/README.md#single-thread-event-loop--blocking-code---in-depth)** 🌟✨ &mdash; **MUST READ!**
 
 ## Table of Contents ©
 
@@ -40,3 +41,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
    1. **[Writing Events That Would Eventually Error Out](./understanding-basics/README.md#event-driven-code-execution)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/blob/5f4d6c46a4137e31004e8489575a123c032fd26a/understanding-basics/src/index.ts#L109-L118)
    2. **[Writing Events To Mitigate Errors](./understanding-basics/README.md#event-driven-code-execution-writing-events-that-wont-error-out)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/86f0571879f47a6202d50251dca3d3374c83dabb)
 7. Blocking &mdash; `writeFileSync()` & Non-Blocking &mdash; `writeFile()` Code: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/81ccf70ff515d9985d0679b3778c355375edc804)
+8. [NodeJS &mdash; Behind the Scenes: Single Thread, Event Loop & Blocking Code (Deep Dive)](./understanding-basics/README.md#single-thread-event-loop--blocking-code---in-depth) 🌟✨
