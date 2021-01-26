@@ -1,6 +1,3 @@
-/**
- * 
- */
 import { IncomingMessage, ServerResponse } from 'http';
 
 export const HTMLStart = `
@@ -15,7 +12,10 @@ export const HTMLEnd = `
 </html>
 `;
 
-export const method = { 'GET': 'GET', 'POST': 'POST' };
+export const method = {
+  GET: 'GET',
+  POST: 'POST'
+};
 
 const handler = (req: IncomingMessage, res: ServerResponse) => {
   const URL = req.url;
