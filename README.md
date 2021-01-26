@@ -42,3 +42,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
    2. **[Writing Events To Mitigate Errors](./understanding-basics/README.md#event-driven-code-execution-writing-events-that-wont-error-out)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/86f0571879f47a6202d50251dca3d3374c83dabb)
 7. Blocking &mdash; `writeFileSync()` & Non-Blocking &mdash; `writeFile()` Code: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/81ccf70ff515d9985d0679b3778c355375edc804)
 8. **[NodeJS &mdash; Behind the Scenes: Single Thread, Event Loop & Blocking Code (Deep Dive)](./understanding-basics/README.md#single-thread-event-loop--blocking-code---in-depth)** 🌟✨ &mdash; __MUST READ!__
+9. Using the Node Modules System &mdash; `exports` & `imports` (ES5/ES6+): [Commit Details]()
