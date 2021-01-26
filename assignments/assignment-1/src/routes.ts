@@ -65,6 +65,7 @@ const handler = (req: IncomingMessage, res: ServerResponse) => {
     return req.on('end', () => {
       const parsedBody = Buffer.concat(body).toString();
       console.log(`Input received from '/' from input - ${inputName}: ${parsedBody.split('=')[1]}`);
+      res.writeHead(302, `Redirecting to '/' from ${URL}...`, { Location: '/' });
       return res.end(`URL: ${URL}, METHOD: ${METHOD}`);
     });
   }
