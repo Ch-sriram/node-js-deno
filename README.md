@@ -16,6 +16,8 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Node Lifecycle & Event Loop](./understanding-basics/README.md#node-lifecycle--event-loop)**
 - **[Running NodeJS + TypeScript](https://khalilstemmler.com/blogs/typescript/node-starter-project/)**
 - **[NodeJS &mdash; Behind the Scenes: Single Thread, Event Loop & Blocking Code (Deep Dive)](./understanding-basics/README.md#single-thread-event-loop--blocking-code---in-depth)** 🌟✨ &mdash; **MUST READ!**
+- **[Event Loop, Timers & process.nexttick - Official NodeJS Docs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)**
+- **[Don't Block the Event Loop - Official NodeJS Docs](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)**
 
 ## Table of Contents ©
 
