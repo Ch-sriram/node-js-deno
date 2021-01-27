@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # User added ignores
-package-lock.json*
+# package-lock.json*
