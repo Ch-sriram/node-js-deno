@@ -40,7 +40,7 @@ const requestHandler = (req: IncomingMessage, res: ServerResponse) => {
       // fs.writeFileSync('message.txt', parsedBody.split('=')[1]
       
       // Asynchronous Code (Non Blocking)
-      writeFile('message.txt', parsedBody.split('=')[1] + '\n', (_err: any) => {
+      writeFile('message.txt', parsedBody.split('=')[0] + '\n', (_err: any) => {
         // https://www.geeksforgeeks.org/node-js-response-writehead-method/
         // official doc: https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers
         res.writeHead(302, 'redirecting from \'/\' to \'/\'', { 'Location': '/' }); // or, we can also write: res.statusCode = 302; res.setHeader('Location', '/');
