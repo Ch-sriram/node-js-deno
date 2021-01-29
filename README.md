@@ -52,4 +52,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 ### Express Framework 🚅🌪💨
 
 1. Prerequisite: A Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/a6ab359b7d460f4329a621e9550ce4e43c53299e)
-2. Installing Express & its Basics: [Commit Details]()
+2. Installing Express & Using `express()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c605244443c83725e89f428e7c5f6fec837a292a)
