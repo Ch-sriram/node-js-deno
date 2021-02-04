@@ -18,6 +18,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[NodeJS &mdash; Behind the Scenes: Single Thread, Event Loop & Blocking Code (Deep Dive)](./understanding-basics/README.md#single-thread-event-loop--blocking-code---in-depth)** 🌟✨ &mdash; **MUST READ!**
 - **[Event Loop, Timers & process.nexttick - Official NodeJS Docs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)**
 - **[Don't Block the Event Loop - Official NodeJS Docs](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)**
+- **[The Concept of Middleware](https://github.com/Ch-sriram/node-js-deno/blob/main/working-with-express/README.md)**
 
 ## Table of Contents ©
 
@@ -53,4 +54,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 
 1. Prerequisite: A Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/a6ab359b7d460f4329a621e9550ce4e43c53299e)
 2. Installing Express & Using `express()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c605244443c83725e89f428e7c5f6fec837a292a)
-3. Adding Middleware using `app.use()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/3483e1ba4c15c8e5cfae3ff7f0e8ea81e49b0b02)
+3. **[Adding Middleware](https://github.com/Ch-sriram/node-js-deno/blob/main/working-with-express/README.md)** using `app.use()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/3483e1ba4c15c8e5cfae3ff7f0e8ea81e49b0b02)
