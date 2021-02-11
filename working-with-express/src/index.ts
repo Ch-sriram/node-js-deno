@@ -1,11 +1,5 @@
-// Node Imports
-import http from 'http';
-
 // Third Party Imports
 import express, { NextFunction, Request, Response } from 'express';
-
-// Local Imports
-
 
 const app = express();
 
@@ -38,8 +32,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 /**
- * Output: [Open localhost://3000]
- * '''''''''''''''''''''''''''''''
+ * Output: [Open http://localhost:3000/]
+ * '''''''''''''''''''''''''''''''''''''
  * In the middleware!
  * In another middleware!
  */
@@ -50,7 +44,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
  * has the aforementioned syntax ((request, response, next) => {}).
  */
 
-http.createServer(app).listen(3000);
+app.listen(3000);
 
 /**
  * Now if we run `npm start`, we'll have a running server which doesn't handle any requests for now.
