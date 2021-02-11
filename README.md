@@ -54,6 +54,6 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 
 1. Prerequisite: A Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/a6ab359b7d460f4329a621e9550ce4e43c53299e)
 2. Installing Express & Using `express()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c605244443c83725e89f428e7c5f6fec837a292a)
-3. **[Adding Middleware](https://github.com/Ch-sriram/node-js-deno/blob/main/working-with-express/README.md)** using `app.use()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/3483e1ba4c15c8e5cfae3ff7f0e8ea81e49b0b02)
+3. **[Adding Middleware](./working-with-express/README.md#express-as-a-middleware)** using `app.use()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/3483e1ba4c15c8e5cfae3ff7f0e8ea81e49b0b02)
 4. How Middleware Works: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/a61644bc3205d21ca45305ea5d929297410f20de)
-5. Express.js &mdash; Looking Behind the Scenes: [Commit Details]()
+5. [Express.js &mdash; Looking Behind the Scenes](./working-with-express/README.md#expressjs-behind-the-scenes): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/973f10bed1deffd662bb7a150cc0f5cc096f762e)
