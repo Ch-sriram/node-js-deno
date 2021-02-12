@@ -47,7 +47,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 7. Blocking &mdash; `writeFileSync()` & Non-Blocking &mdash; `writeFile()` Code: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/81ccf70ff515d9985d0679b3778c355375edc804)
 8. **[NodeJS &mdash; Behind the Scenes: Single Thread, Event Loop & Blocking Code (Deep Dive)](./understanding-basics/README.md#single-thread-event-loop--blocking-code---in-depth)** 🌟✨ &mdash; __MUST READ!__
 9. Using the Node Modules System &mdash; `exports` & `imports` (ES5/ES6+): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/51a6fb45756fe669a5a5a35dbaeda0063453f4bc)
-10. **[Assignment I](./assignments/assignment-1/README.md#assignment-question)**: **[Solution](./assignments/assignment-1/)**
+10. **[Assignment I](./assignments/assignment-1/README.md#assignment-question)**: **[Solution](./assignments/assignment-1/)** 📜
 11. [Debugging using VS Code's NodeJS Debugger](https://code.visualstudio.com/docs/nodejs/nodejs-debugging): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/21014c85c29f0d9e20d6d021f4025eab6a5853cf) 🌟
 
 ### Express Framework 🚅🌪💨
@@ -58,4 +58,5 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 4. How Middleware Works: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/a61644bc3205d21ca45305ea5d929297410f20de)
 5. **[Express.js &mdash; Looking Behind the Scenes](./working-with-express/README.md#expressjs-behind-the-scenes)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/973f10bed1deffd662bb7a150cc0f5cc096f762e)
 6. Handling Different Routes: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/090fadb85699f271b37958a6d4d47d98abdcac6e)
-7. **[Assignment II](./assignments/assignment-2/README.md#assignment-question)**: **[Solution](./assignments/assignment-2/)**
+7. **[Assignment II](./assignments/assignment-2/README.md#assignment-question)**: **[Solution](./assignments/assignment-2/)** 📜
+8. Parsing Incoming Requests using `express.urlencoded({ extended: false })` (or, `bodyParser` \[*deprecated*\]) passed to `app.use()` middleware: [Commit Details]()
