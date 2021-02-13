@@ -19,15 +19,6 @@ const routes: PathParams = [
   '/product'
 ];
 
-/**
- * Let's understand how to parse incoming requests and extract
- * data from incoming requests.
- * 
- * For that, knowledge to handle a POST request is necessary!
- * Let's say, on the route '/add-product', an HTML page with
- * a form is returned as shown below.
- */
-
 // matches incoming requests w.r.t '/add-product' route only
 app.use(routes[1], (_req: Request, res: Response, _next: NextFunction) => {
   res.send(`
@@ -39,57 +30,35 @@ app.use(routes[1], (_req: Request, res: Response, _next: NextFunction) => {
 });
 
 /**
- * From the middleware for '/add-product', it is evident that
- * the form will redirect the form submit onto '/product' route
- * and so, middleware for '/product' has to be defined as shown
- * below ('/product' route's middleware can be placed before 
- * or after '/add-product' route's middleware, but it cannot 
- * be placed after '/' route's middleware)
+ * Right now, the middleware that executes on '/product' route,
+ * accepts all kinds of Incoming Requests i.e., requests on
+ * '/product' route can either be GET/POST request, the 
+ * middleware will be executed.
+ * 
+ * Therefore, instead of using app.use() --> app.get() can be
+ * used to only accept Incoming GET Requests, and on the same
+ * controller, there's post() also, i.e., app.post() can be
+ * used to only accept Incoming POST Requests for that 
+ * particular middleware.
+ * 
+ * Therefore,the middleware related to '/product' route should
+ * only accept Incoming POST Requests, and so -- app.use()
+ * needs to be changed to app.post() as shown below.
  */
 
 // matches incoming requests w.r.t '/product' route only
-// also, this middleware executes for both GET & POST requests
-app.use(routes[2], (req: Request, res: Response, next: NextFunction) => {
-  // express.js has a convenience feature where the 'body' of
-  // the incoming request data is parsed as a JS object as a 
-  // key-value pair.
-  
-  // console.log(req.body); // undefined
-  
-  // Although req object does give the convenience feature of
-  // using the req.body property, but by default, the request
-  // object (req) doesn't try to parse the Incoming Request 
-  // Body. For the request object (req) to automatically parse
-  // the Incoming Request's Body, another middleware is to be 
-  // added, which is known as 'body-parser', which is to be
-  // added as a top-level middleware (meaning, middleware that
-  // should be executed before all other middlewares -- and so
-  // it should be added at the top of the respective file)
-  // because any incoming request body can contain data that
-  // can be needed, and so, 'body-parser' (3rd party package)
-  // helps in automatically parsing the req.body property.
-
-  // To use 'body-parser', it has to be installed using npm as:
-  //   npm i 'body-parser' [NOTE: --save is implied]
-  // And then pass the 'body-parser' package's urlencoded() 
-  // method's execution inside a top-level middleware as shown
-  // after `const app = express();`'s definition somewhere in 
-  // this file (above).
-
-  // NOTE: 'body-parser' package is deprecated and so, instead
-  // of installing 'body-parser' package and passing 
-  // bodyParser.urlencoded() to use() middleware, simply, 
-  // express.urlencoded() can be passed (into use() middleware)
-
-  console.log(req.body);
-
-  // ---------------------------------------------------------
-  // In vanilla node.js, there's a need to manually set the
-  // status code and setting the location header. But with 
-  // express, res.redirect(<route>) can be used to redirect to
-  // the specified <route>. The <route> used will be '/' here.
+app.post(routes[2], (req: Request, res: Response, _next: NextFunction) => {
+  console.log(req.body); // req.body: get form values as JS object
   res.redirect(routes[0] as string);
 });
+
+/**
+ * NOTE: app.use() works with all the HTTP methods, i.e.,
+ * the middleware will execute all the Incoming Requests 
+ * regardless of the type of the HTTP method (it can be GET,
+ * POST, PUT, DELETE, PATCH, etc). The only differentiator
+ * then becomes the route param passed to the middleware.
+ */
 
 // matches '/' => matches any route other than '/add-product' & '/product'
 app.use(routes[0], (_req: Request, res: Response, _next: NextFunction) => {
@@ -116,5 +85,11 @@ app.listen(3000);
  * If `localhost:3000/product` is directly accessed from the 
  * browser, then:
  * 
- * Output on the node console will be: {}
+ * Output on the node console will log nothing this time 
+ * because '/product' route's middleware is NOT defined on an
+ * Incoming GET Request.
+ * 
+ * But, on accessing any route that's NOT defined, the
+ * middleware for route '/' will run, as in this case, it is
+ * defined for all Incoming Requests of all kinds of methods.
  */
