@@ -58,6 +58,7 @@ router.post(routes.product, (req: Request, res: Response, _next: NextFunction) =
    * Read More on extended option here: 
    * https://stackoverflow.com/questions/29960764/what-does-extended-mean-in-express-4-0
    */
+  console.log(req.body);
   res.redirect(routes.root as string);
 });
 
