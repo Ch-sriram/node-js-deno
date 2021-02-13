@@ -2,16 +2,12 @@
  * Contains route constants as objects
  */
 
-import { PathParams } from 'express-serve-static-core';
-
-interface RouteInterface {
-  [route: string]: PathParams;
-}
-
-const routes: RouteInterface = {
+const routes = {
   root: '/',
-  addProduct: '/add-product',
-  product: '/product'
+  admin: {
+    root: '/admin',
+    addProduct: '/add-product'
+  }
 };
 
 export default routes;

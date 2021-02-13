@@ -16,49 +16,35 @@ import routes from './routes';
 const router = express.Router();
 
 /**
- * 'router' object can be used to define the middleware related
- * to a particular route and then that can be exported.
+ * For admin related routes, a logical grouping can be done in
+ * '/admin' route and then any route under admin related route
+ * should be appended with '/admin/<route-name>'.
  * 
- * Router creates a mini-express app which is pluggable into
- * the main express app.
+ * Can be done by specifically appending '/admin' on the 
+ * individual middlewares i.e., 
+ *  router.get('/admin/add-product', () => {...});
+ *  router.post('/admin/add-product', () => {...});
+ * 
+ * But, doing that is NOT feasible if there are many routes 
+ * related admin. In that case, the router is supposed to be
+ * added only the sub-routes related admin routes as shown
+ * below, and that can be grouped as: 
+ *  app.use('/admin', adminRoutes); // as in index.ts file
  */
 
-// 'router' object can be used to define a use(), get(), post()
-// etc middleware(s) and so whatever can be done using
-// express() (i.e., express().use(), etc), can be done using
-// the router() object as shown below.
-
-// '/add-product' & '/product' route should certainly go into 
-// routes related to admin, which is in this file
-
-// matches incoming requests w.r.t '/add-product' route only
-router.use(routes.addProduct, (_req: Request, res: Response, _next: NextFunction) => {
+// '/admin/add-product' => GET ['/admin' part is NOT checked here as it is checked in app.use() in index.ts]
+router.get(routes.admin.addProduct, (_req: Request, res: Response, _next: NextFunction) => {
   res.send(`
-    <form action="/product" method="POST">
+    <form action="${routes.admin.root}${routes.admin.addProduct}" method="POST">
       <input type="text" name="title">
       <button type="submit">Add Product</button>
     </form>
   `);
 });
 
-// matches Incoming POST Requests w.r.t '/product' route only
-router.post(routes.product, (req: Request, res: Response, _next: NextFunction) => {
-  // console.log(req.body); // [Object: null prototype] { title: '<typed-in-text>' }
-
-  /**
-   * To get rid of the [Object: null prototype], follow this 
-   * stack-overflow solution: https://stackoverflow.com/questions/56298481/how-to-fix-object-null-prototype-title-product
-   * 
-   * Conversely, the middleware added for url encoding using
-   *  app.use(express.urlencoded({ extended: false })); // src/index.ts
-   * can be changed to the following:
-   *  app.use(express.urlencoded({ extended: true }));
-   * to NOT get the additional [Object: null prototype]
-   * 
-   * Read More on extended option here: 
-   * https://stackoverflow.com/questions/29960764/what-does-extended-mean-in-express-4-0
-   */
-  console.log(req.body);
+// '/admin/add-product' => POST ['/admin' part is NOT checked here as it is checked in app.use() in index.ts]
+router.post(routes.admin.addProduct, (req: Request, res: Response, _next: NextFunction) => {
+  console.log(JSON.parse(JSON.stringify(req.body)));
   res.redirect(routes.root as string);
 });
 
