@@ -4,7 +4,7 @@
 
 import { PathParams } from 'express-serve-static-core';
 
-interface RouteInterface{
+interface RouteInterface {
   [route: string]: PathParams;
 }
 
