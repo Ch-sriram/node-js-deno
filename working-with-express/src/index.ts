@@ -1,69 +1,65 @@
 // Express Imports
-import express, {
-  NextFunction,
-  Request,
-  Response,
-} from 'express';
-import { PathParams } from 'express-serve-static-core';
+import express from 'express';
 
+// router object imports for admin and shop related routes
+import adminRoutes from './routes/admin';
+import shopRoutes from './routes/shop';
+
+// app object: request handler and main express app
 const app = express();
 
-// app.use(bodyParser.urlencoded()); // body-parser is deprecated post express v4.17 release.
-
-// Instead of body-parser, express.urlencoded() can be passed into the use() middleware as follows:
-app.use(express.urlencoded({ extended: false })); // more about the 'extended' option: https://github.com/expressjs/body-parser#extended
-
-const routes: PathParams = [
-  '/',
-  '/add-product',
-  '/product'
-];
-
-// matches incoming requests w.r.t '/add-product' route only
-app.use(routes[1], (_req: Request, res: Response, _next: NextFunction) => {
-  res.send(`
-    <form action="/product" method="POST">
-      <input type="text" name="title">
-      <button type="submit">Add Product</button>
-    </form>
-  `);
-});
+// to be able to access req.body property in all middlewares
+app.use(express.urlencoded({ extended: false }));
 
 /**
- * Right now, the middleware that executes on '/product' route,
- * accepts all kinds of Incoming Requests i.e., requests on
- * '/product' route can either be GET/POST request, the 
- * middleware will be executed.
+ * This is one of the most important concept(s) in express.js
+ * as rest of the concepts in express.js will build up on this
+ * knowledge of how express.Router() works.
  * 
- * Therefore, instead of using app.use() --> app.get() can be
- * used to only accept Incoming GET Requests, and on the same
- * controller, there's post() also, i.e., app.post() can be
- * used to only accept Incoming POST Requests for that 
- * particular middleware.
+ * Putting all of the code - routing related, encoding related,
+ * etc, in a single file (index.ts) is NOT a good practice as
+ * a single file should NOT hold different logical components.
  * 
- * Therefore,the middleware related to '/product' route should
- * only accept Incoming POST Requests, and so -- app.use()
- * needs to be changed to app.post() as shown below.
+ * And so, the routing code is supposed to be split over
+ * multiple files. We can possibly export the callback function
+ * i.e., (req, res, next) => {} function into different files
+ * and pass them as callback in respective middleware(s) in 
+ * this file (index.ts).
+ * 
+ * But, express.js gives a convenience for that too, i.e.,
+ * there's no need to export only the function that are going
+ * to be passed as callback in the middleware(s), and that 
+ * convenience method is known as Router() method which is 
+ * invoked as express.Router()
  */
-
-// matches incoming requests w.r.t '/product' route only
-app.post(routes[2], (req: Request, res: Response, _next: NextFunction) => {
-  console.log(req.body); // req.body: get form values as JS object
-  res.redirect(routes[0] as string);
-});
 
 /**
- * NOTE: app.use() works with all the HTTP methods, i.e.,
- * the middleware will execute all the Incoming Requests 
- * regardless of the type of the HTTP method (it can be GET,
- * POST, PUT, DELETE, PATCH, etc). The only differentiator
- * then becomes the route param passed to the middleware.
+ * Now, adminRoutes and shopRoutes can be passed on to 
+ * app.use() middleware as seen below.
+ * 
+ * NOTE: the ordering of the middlewares matter. For specific 
+ * routes, the ordering doesn't matter, but for middleware that
+ * is defined on route '/', it should always be placed at the
+ * end (iff, the middleware related to '/' route is defined 
+ * using the use() method -> since it is defined for all the
+ * HTTP methods). 
+ * 
+ * If the '/' route is defined only for specific methods like 
+ * GET/POST (i.e., using router.get('/', callback), then the
+ * order of defining the middleware(s) doesn't matter.
  */
 
-// matches '/' => matches any route other than '/add-product' & '/product'
-app.use(routes[0], (_req: Request, res: Response, _next: NextFunction) => {
-  res.send('<h1>Hello from Express!</h1>');
-});
+// app.use(adminRoutes);
+// app.use(shopRoutes); // this should be at the end because '/' route is defined on router.use() middleware.
+
+/**
+ * If the '/' route middleware inside shopRoutes is changed
+ * from router.use() to router.get(), then, the order of 
+ * defining the middleware in this file won't matter.
+ */
+
+app.use(shopRoutes);
+app.use(adminRoutes);
 
 app.listen(3000);
 
@@ -90,6 +86,11 @@ app.listen(3000);
  * Incoming GET Request.
  * 
  * But, on accessing any route that's NOT defined, the
- * middleware for route '/' will run, as in this case, it is
- * defined for all Incoming Requests of all kinds of methods.
+ * middleware for route '/' will NOT run, as in this case, it 
+ * is only defined for GET method, which means that only on an 
+ * Incoming Request on route '/' with GET method the middleware
+ * related to '/' on GET method will be executed.
+ * 
+ * Therefore, for all other routes, an error page is to be
+ * added along with returning the status code of 404.
  */
