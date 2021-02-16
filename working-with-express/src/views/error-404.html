@@ -6,16 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 Not Found</title>
   <style>
-    .header__main {
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    main {
+      margin: 1rem;
+    }
+
+    .header__error {
       height: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: Lucida Console, Courier, monospace;
     }
+
+    .main-header {
+      width: 100%;
+      height: 3.5rem;
+      background-color: #f06626;
+      padding: 0 1.5rem;
+    }
+
+    .main-header__nav {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .main-header__item-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .main-header__item {
+      margin: 0 1rem;
+      padding: 0;
+    }
+
+    .main-header__item a {
+      text-decoration: none;
+      color: white;
+      transition: all .2s;
+    }
+
+    .main-header__item a:hover,
+    .main-header__item a:active,
+    .main-header__item a.active {
+      text-decoration: none;
+      color: #124a65;
+      box-shadow: 0 5px 15px rgba(224, 223, 223, 0.5);
+    }
   </style>
 </head>
 <body>
-  <h1 class="header__main">Page Not Found: 404 Error</h1>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__item-list">
+        <li class="main-header__item"><a href="/" class="active">Shop</a></li>
+        <li class="main-header__item"><a href="/admin/add-product">Add Product</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1 class="header__error">Page Not Found: 404 Error</h1>
 </body>
 </html>

@@ -41,7 +41,7 @@ router.get(routes.root, (_req: Request, res: Response, _next: NextFunction) => {
   // called `__dirname` can be used to catenate a valid 
   // absolute path which shows where the file is located at.
 
-  res.sendFile(path.join(__dirname, '../views', 'shop.html')); // this works
+  // res.sendFile(path.join(__dirname, '../views', 'shop.html')); // this works
   // res.sendFile(path.join(__dirname, '../views/shop.html')); // this also works
 
   // We could've also used the following syntax:
