@@ -14,6 +14,7 @@ import express, {
 
 // local imports
 import routes from './routes';
+import rootDir from '../utils/path';
 
 // Create a router as follows
 const router = express.Router();
@@ -23,7 +24,8 @@ router.get(routes.admin.addProduct, (_req: Request, res: Response, _next: NextFu
   // Here too, instead of sending direct HTML string, an HTML
   // file can be sent as follows (go through shop.ts to 
   // understand the code below):
-  res.sendFile(path.join(__dirname, '../views/add-product.html'));
+  res.sendFile(path.join(rootDir, './views/add-product.html'));
+  console.log(rootDir);
 });
 
 // '/admin/add-product' => POST ['/admin' part is NOT checked here as it is checked in app.use() in index.ts]

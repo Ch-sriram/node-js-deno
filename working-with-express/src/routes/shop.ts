@@ -14,6 +14,7 @@ import express, {
 
 // Local Imports
 import routes from './routes';
+import rootDir from '../utils/path';
 
 // create a router from express object
 const router = express.Router();
@@ -42,6 +43,28 @@ router.get(routes.root, (_req: Request, res: Response, _next: NextFunction) => {
 
   res.sendFile(path.join(__dirname, '../views', 'shop.html')); // this works
   // res.sendFile(path.join(__dirname, '../views/shop.html')); // this also works
+
+  // We could've also used the following syntax:
+  // res.sendFile(path.join(__dirname, '..', 'views', 'shop.html')); // this is more general, because '/' is used in linux based OS' and '\' is used in windows OS.
+
+  /**
+   * There's an even nicer way of getting the source directory
+   * (entry point of the app, which is index.ts), which can
+   * be found in utils/path.ts.
+   */
+  res.sendFile(path.join(rootDir, 'views', 'shop.html'));
+  // res.sendFile(path.join(rootDir, './', 'views', 'shop.html'));
+  // res.sendFile(path.join(rootDir, './views', 'shop.html'));
+  // res.sendFile(path.join(rootDir, './views/shop.html'))
+
+  // All of the above are same
+
+  /**
+   * rootDir points to wherever the entry point is, in this
+   * case, the entry point is index.ts, and therefore 'rootDir'
+   * points to 'src'. From there onwards, relative path is to
+   * be given.
+   */
 });
 
 export default router;
