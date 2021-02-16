@@ -1,5 +1,8 @@
 // Handles requests to unknown/invalid routes
 
+// Core NodeJS Imports
+import path from 'path';
+
 // Express Imports
 import express, { NextFunction, Request, Response } from 'express';
 
@@ -12,19 +15,7 @@ const router = express.Router();
 
 // matches all valid/invalid routes -> iff, no other middlewares match a given route
 // by default, the path/route passed is '/' i.e., routes.root is sent implicitly
-router.use((_req: Request, res: Response, _next: NextFunction) => res.status(404).send(`
-  <h1
-    style="
-      height: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Lucida Console, Courier, monospace;
-    "
-  >
-    Page Not Found: 404 Error
-  </h1>
-`));
+router.use((_req: Request, res: Response, _next: NextFunction) => res.status(404).sendFile(path.join(__dirname, '../views/error-404.html')));
 
 /**
  * Know that the response object `res` inside a callback can
