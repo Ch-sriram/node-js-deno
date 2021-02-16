@@ -68,4 +68,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 14. Serving HTML Pages using `path.join()` & `__dirname`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/29de79330672b2f55c193fb222d9be23f97b57bb)
 15. Returning a 404 Error Page: [Commit Details](https://github.com/Ch-sriram/node-js-deno/154cecf251208c39791a01908ec197ad3044523a)
 16. Using a Helper Function for Navigation using `path.dirname(require.main.filename)`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/1b682c2d46bb804209dea0dc1e86e068ec114437)
-17. Styling HTML Pages: [Commit Details]()
+17. Styling HTML Pages: [Commit Details](https://github.com/Ch-sriram/node-js-deno/1c95acc9dd636f519d786ce99cabcb4cf32313ee)
