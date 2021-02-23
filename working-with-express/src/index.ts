@@ -1,3 +1,6 @@
+// Node Imports
+import path from 'path';
+
 // Express Imports
 import express from 'express';
 
@@ -15,6 +18,7 @@ export const PORT = 3000; // use for localhost
 
 // to be able to access req.body property in all middlewares
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Grouped Routes
 app.use(shopRoutes);
