@@ -25,6 +25,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Introduction](#introduction)**
 - **[Understanding Basics](#understanding-basics)**
 - **[Express Framework 🚅🌪💨](#express-framework-)**
+- **[Dynamic Content & Templating Engines](#dynamic-content--templating-engines)**
 
 ### Introduction
 
