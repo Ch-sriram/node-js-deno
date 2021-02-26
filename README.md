@@ -71,3 +71,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 17. Styling HTML Pages: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/1c95acc9dd636f519d786ce99cabcb4cf32313ee)
 18. Serving Files Statically using `express.static()` middleware: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/a4a4623241ee65d72e3cb8942f81255359ad507a)
 19. **[Assignment III](./assignments/assignment-3/README.md#assignment-question)**: **[My Solution](./assignments/assignment-3/)** 📜
+
+### Dynamic Content & Templating Engines
+
+1. Basic Setup: [Commit Details]()
