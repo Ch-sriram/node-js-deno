@@ -74,4 +74,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 
 ### Dynamic Content & Templating Engines
 
-1. Basic Setup: [Commit Details]()
+1. Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/e03323269365f20a38c606415cf8b1693c03c418)
