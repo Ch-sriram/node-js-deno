@@ -25,18 +25,22 @@ router.get(routes.root, (_req: Request, res: Response, _next: NextFunction) => {
   console.log('shop.ts', products);
   // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
 
+  // res.render('shop'); // No dynamic content generation possible
   /**
-   * To render a pug template, we've to use the render() method
-   * inside the `res` object. The render() method uses the the
-   * default 'view engine' which is defined inside the
-   * app.set() wherever the top-level express() app is defined.
+   * Although, the template for `shop`'s view is being rendered
+   * but there's NO dynamic content being generated from the
+   * 'shop.pug' template.
+   * 
+   * We can send in data to the 'shop' template from the 
+   * res.render() method, i.e., 
+   *    res.render(<template_name>, options)
+   * where, 'options' is a JS object which can take in any kind
+   * of data and that data can be accessed inside the template.
    */
-  res.render('shop');
-  // no need to mention the path to the pug template since the 
-  // path to 'views' is already mentioned at the top - level 
-  // express app and also, no need to mention the .pug 
-  // extension as the express already knows what the 'view 
-  // engine' is.
+  res.render('shop', {
+    products, // can also send `products` with a diff. name - prods: products
+    docTitle: 'Shop'
+  });
 });
 
 export default router;

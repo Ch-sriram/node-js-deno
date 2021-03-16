@@ -8,7 +8,11 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title My Shop
+    //- title My Shop
+    //- 
+      Instead of showing the title hard-coded, we can now use
+      `docTitle` object as follows
+    title #{docTitle}
     link(rel="stylesheet", href="/css/main.css")
     link(rel="stylesheet", href="/css/product.css")
   body
@@ -19,6 +23,28 @@ html(lang="en")
             a.active(href="/") Shop
           li.main-header__item
             a.active(href="/admin/add-product") Add Product
-
-//- This particular template code written in Pug will be 
-//- converted into HTML code by the Pug templating engine
+    
+    main
+      //- 
+        If there are no `products`, we can show something like 'No Products' as follows
+      if products.length <= 0
+        h1 No Products
+      else
+        //- 
+          We can iterate through all the `products` passed from
+          the render() method using 'each' method as follows:
+        each product in products
+          //- .class_name is same as <div class="class_name"></div>
+          .grid
+            //- same as: <article class="card product-item">
+            article.card.product-item
+              header.card__header
+                //- Use the `product` object as follows
+                h1.product__title #{product.title}
+              div.card__image
+                img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Atharva-Veda_samhita_page_471_illustration.png/800px-Atharva-Veda_samhita_page_471_illustration.png", alt="Vedas")
+              div.card__content
+                h2.product__price $19.99
+                p.product__description A very interesting book about so many even more interesting things!
+              div.card__actions
+                button.btn Add to Cart
