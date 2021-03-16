@@ -30,35 +30,7 @@ router.get(routes.admin.addProduct, (_req: Request, res: Response, _next: NextFu
 // '/admin/add-product' => POST ['/admin' part is NOT checked here as it is checked in app.use() in index.ts]
 router.post(routes.admin.addProduct, (req: Request, res: Response, _next: NextFunction) => {
   console.log(JSON.parse(JSON.stringify(req.body)));
-  /**
-   * Right now, the data being worked on is just being logged
-   * to the console, it's NOT being stored anywhere by the
-   * user/programmer, and hence, it's NOT being used to its
-   * fullest potential.
-   * 
-   * Working with the data that is received is kind of hard 
-   * right now because there's NO Database to permanently store
-   * it somewhere.
-   * 
-   * But there's one thing that can be done and that's storing
-   * the incoming data in JS Variables and see whether this
-   * kind of data is being shared across incoming request(s)
-   * from different users (which is often NOT supposed to be
-   * shared).
-   */
-  
-  /**
-   * Create a new `products[]` list which will have the data
-   * stored from '/admin/add-product' route and is exported,
-   * so that it can be imported by other modules.
-   */
   products.push({ title: req.body.title });
-
-  /**
-   * shop.ts will import the `products[]` and output it onto
-   * the view/console.
-   */
-  
   res.redirect(routes.root as string);
 });
 
