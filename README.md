@@ -77,4 +77,5 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 
 1. Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/e03323269365f20a38c606415cf8b1693c03c418)
 2. Sharing Data Across Requests & Users: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/74a44f1998a8d5db558c5e649ca24ea92ecb0e76)
-3. **[Templating Engines](./dynamic-content-templating-engines/README.md#templating-engines)**
+3. **[Templating Engines](./dynamic-content-templating-engines/README.md#templating-engines)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6962aea80ff55ddd150230d4ad165ab22e9629db)
+4. Installing **[Pug](https://pugjs.org/api/getting-started.html)**, **[EJS](https://ejs.co/#install)** & **[Handlebars](https://github.com/express-handlebars/express-handlebars)**: `npm i --save pug ejs express-handlebars && npm i -D @types/pug @types/ejs @types/express-handlebars`
