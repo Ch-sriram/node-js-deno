@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{docTitle}
+    link(rel="stylesheet", href="/css/main.css")
+    //-
+      In this file, we've a base layout code that needs to be extended, and so, in other views (which
+      extend the `main-layout.pug` file) along with having the the base layout code, we might want to add more stuff,
+      like more link tags, depending on the usage. So for that, we might need a pug construct known as `block`, which
+      can be referred to by the extending views and in that referred area, any code can be written depending on what
+      the view might require. This is known as a hook on which the actual extending template will use the given hook,
+      defined by the usage of `block` keyword.
+    block styles
+  body
+    header.main-header
+      nav.main-header__nav
+        ul.main-header__item-list
+          //- li.main-header__item
+          //-   a.active(href="/") Shop
+          //- li.main-header__item
+          //-   a(href="/admin/add-product") Add Product
+            We also do NOT know which one link would be an active link, so, we'll have to determine that
+            dynamically, which we'll do later.
+          li.main-header__item
+            a(href="/") Shop
+          li.main-header__item
+            a(href="/admin/add-product") Add Product
+    
+    //- Even the content of the this particular base template 
+      would be dynamic, and so, we'd declare a hook here, using
+      the `block` keyword
+    block content

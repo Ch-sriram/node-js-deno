@@ -1,17 +1,26 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title #{docTitle}
-    link(rel="stylesheet", href="/css/main.css")
-  body
-    header.main-header
-      nav.main-header__nav
-        ul.main-header__item-list
-          li.main-header__item 
-            a.active(href="/") Shop
-          li.main-header__item 
-            a(href="/admin/add-product") Add Product
-    h1 Page Not Found!
+//- Now we can extend the base layout using the `extends` keyword as follows: [NOTE: Adding .pug extension is necessary]
+extends layouts/main-layout.pug
+
+//- We don't want to add anything for the {styles} block, but we do want to add templating for the {content} block
+block content
+  h1 Page Not Found
+
+//- This time, since we want to have some custom content inside the {content} block and since we're extending the `main-layout.pug`,
+  we can go ahead and use the keyword `block` and define the hook we want to define for in this particular view.
+  And so, for this particular view, all the elements of `main-layout.pug` will be as they're, but in place of the 
+  block defined as {content}, `h1 Page Not Found` will be injected. in this file, as this is obviously extending from
+  the base layout as seen in L2.
+
+    
+    //- !!! READ THIS BEFORE READING ANYTHING !!!
+      In all the template files, there was repeated code where the header.main-header and along with its children
+      were repeated almost all the time. Also, the html, meta and main.css link tag was also being repeated.
+
+      But is there a way to decrease repetition? YES there is -- We can create a `layout` directory inside `views`
+      i.e., as follows: 
+        views
+        - layout
+          - main-layout.pug (this file is inside layout directory)
+      
+      We can put the common code being used by all the templates, inside the `main-layout.pug` template file and then
+      import that file into all the templates and reuse the common code.

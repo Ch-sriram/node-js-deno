@@ -1,28 +1,22 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title #{docTitle}
-    link(rel="stylesheet" href="/css/main.css")
-    link(rel="stylesheet" href="/css/forms.css")
-    link(rel="stylesheet" href="/css/product.css")
-  body 
-    header.main-header
-      nav.main-header__nav
-        ul.main-header__item-list
-          li.main-header__item 
-            a(href="/") Shop
-          li.main-header__item
-            a.active(href="/admin/add-product") Add Product
+//- We'll do the same thing that we did for error-404.pug i.e., extend from the 'main-layout.pug' file and define the blocks that are different for this particular view
 
-    main
-      form.product-form(action="/admin/add-product", method="POST")
-        //- L23 is same as `div.form-control`
-        .form-control
-          label(for="title") Title
-          //- L27 can also be written as: `input(type="text" name="title" id="title")`
-          input(type="text" name="title")#title
+extends layouts/main-layout.pug
 
-        button.btn(type="submit") Add Product
+//- In this case, we need different styling which are forms.css and product.css and so, we include them inside the {styles} block
+
+block styles
+  link(rel="stylesheet" href="/css/forms.css")
+  link(rel="stylesheet" href="/css/product.css")
+
+//- Now all the content can go inside the {content} block below
+block content
+  main
+    form.product-form(action="/admin/add-product", method="POST")
+      //- L23 is same as `div.form-control`
+      .form-control
+        label(for="title") Title
+        //- L27 can also be written as: `input(type="text" name="title" id="title")`
+        input(type="text" name="title")#title
+      button.btn(type="submit") Add Product
+
+//- All of the code inside the blocks will be injected to where the block hooks are defined.
