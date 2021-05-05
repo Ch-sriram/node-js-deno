@@ -83,4 +83,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 6. Outputting Dynamic Content Using Pug Templates &mdash; `each`, `if`, `else` & `#{<object_name>}`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6250029b9cf7496fe667a4ba4487b492cd2ec234) & [Commit Details - Fixed `.active` class bug](https://github.com/Ch-sriram/node-js-deno/commit/7e27f7bd67e6fcbbc807e228ebe2fd2e181490fe)
 7. Converting Remaining HTML files to Pug templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/8b75ad801c561c2784be948ff2f86a86ea1aefcb)
 8. Adding a Base Layout using `block`s & Extending that Layout to other templates using `extends <layout-name>`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/afa644d5523a54b4175ad36510b27ab62a36aadf)
-9. Finishing the Pug Template by adding conditional `.active` `class` property to elements in templates: [Commit Details]()
+9. Finishing the Pug Template by adding conditional `.active` `class` property to elements in templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/5be59c1181e34ad65df90b307f2e3d6844aa4d86)
