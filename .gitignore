@@ -105,3 +105,4 @@ dist
 
 # User added ignores
 # package-lock.json*
+.metals
