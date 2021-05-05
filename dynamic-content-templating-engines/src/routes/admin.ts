@@ -27,7 +27,10 @@ router.get(routes.admin.addProduct, (_req: Request, res: Response, _next: NextFu
   // res.sendFile(path.join(rootDir, './views/add-product.html'));
   // no need of L27 since we're trying to render pug templates
   
-  res.render('add-product', { docTitle: 'Add Product' });
+  res.render('add-product', {
+    docTitle: 'Add Product',
+    path: routes.admin.root + routes.admin.addProduct,
+  });
 });
 
 // '/admin/add-product' => POST ['/admin' part is NOT checked here as it is checked in app.use() in index.ts]

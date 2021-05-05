@@ -25,9 +25,9 @@ html(lang="en")
             We also do NOT know which one link would be an active link, so, we'll have to determine that
             dynamically, which we'll do later.
           li.main-header__item
-            a(href="/") Shop
+            a(href="/", class=(path === '/' ? 'active' : '')) Shop
           li.main-header__item
-            a(href="/admin/add-product") Add Product
+            a(href="/admin/add-product", class=(path === '/admin/add-product' ? 'active' : '')) Add Product
     
     //- Even the content of the this particular base template 
       would be dynamic, and so, we'd declare a hook here, using

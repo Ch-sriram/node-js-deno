@@ -39,7 +39,8 @@ router.get(routes.root, (_req: Request, res: Response, _next: NextFunction) => {
    */
   res.render('shop', {
     products, // can also send `products` with a diff. name - prods: products
-    docTitle: 'Shop'
+    docTitle: 'Shop',
+    path: routes.root
   });
 });
 
