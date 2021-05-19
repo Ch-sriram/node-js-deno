@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{docTitle}}</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__item-list">
+        <li class="main-header__item"><a class="active" href="/">Shop</a></li>
+        <li class="main-header__item"><a href="/admin/add-product">Add Product</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {{!-- handlebars helpers - #if: https://handlebarsjs.com/guide/builtin-helpers.html#if 
+    Note the #if cannot take in conditional statements that need to be derived, it directly takes in values like 
+    true, false, undefined, null, [], 0, etc. These values can be sent over onto the template --}}
+    {{!-- Therefore, the following is NOT possible in handlebars:
+      #if products.length > 0
+    But, if we have `products.length > 0`'s value being sent to this template, then we can use that as our condition check, i.e., --}}
+    {{#if hasNoProducts}}
+      <h1>No Products Found!</h1>
+    {{else}} {{!-- Usage of `else` in handlebars --}}
+      {{#each products}} {{!-- looping structure in handlebars: https://handlebarsjs.com/guide/builtin-helpers.html#each --}}
+        <div class="grid">
+          <article class="card product-item">
+            <header class="card__header">
+              {{!-- Each item in the `products` collection can be accessed using the `this` keyword which is 
+              available inside the `each` construct --}}
+              <h1 class="product__title">{{this.title}}</h1>
+            </header>
+            <div class="card__image">
+              <img src="http://james-hare.com/images/imagenotfound.jpg" alt="Image for 'Image Not Found'">
+            </div>
+            <div class="card__content">
+              <h2 class="product__price">$19.99</h2>
+              <p class="product__description">A very interesting book about so many even more interesting things!</p>
+            </div>
+            <div class="card__actions">
+              <button class="btn">Add to Cart</button>
+            </div>
+          </article>
+        </div>
+      {{/each}}
+    {{/if}} {{!-- This is how we end an if-else in handlebars --}}
+  </main>
+</body>
+</html>
+
+{{!-- once a default layout is linked to in app.ts, template would properly render onto the UI --}}

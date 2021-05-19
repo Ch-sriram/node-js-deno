@@ -40,7 +40,8 @@ router.get(routes.root, (_req: Request, res: Response, _next: NextFunction) => {
   res.render('shop', {
     products, // can also send `products` with a diff. name - prods: products
     docTitle: 'Shop',
-    path: routes.root
+    path: routes.root,
+    hasNoProducts: !(products.length > 0) // conditionals not allowed in handlebars, and so, calculation done here directly
   });
 });
 

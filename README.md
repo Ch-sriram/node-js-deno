@@ -88,3 +88,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
       5. Finishing the Pug Template by adding conditional `.active` `class` property to elements in templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/5be59c1181e34ad65df90b307f2e3d6844aa4d86)
    3. **Handlebars** &mdash; *Templating language syntax similar to HTML* 👨🏾:
       1. Working with Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/dd9a442450a080206e05e43e56240f7febfa21b6)
+      2. Converting our Project to Handlebars: [Commit Details]()
