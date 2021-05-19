@@ -1,0 +1,26 @@
+{{!-- {{Copied 'error-404.html' here}} --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {{!-- {{The way we pass data from the controller to the template doesn't change. And so, in routes/error.ts, 
+  imported as 'errorRoutes' in app.ts, still passes the 'docTitle' object as data into this template}} --}}
+  <title>{{ docTitle }}</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__item-list">
+        <li class="main-header__item"><a href="/">Shop</a></li>
+        <li class="main-header__item"><a href="/admin/add-product">Add Product</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>Page Not Found!</h1>
+</body>
+</html>
