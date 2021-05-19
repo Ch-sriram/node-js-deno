@@ -86,5 +86,5 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
       3. Converting Remaining HTML files to Pug templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/8b75ad801c561c2784be948ff2f86a86ea1aefcb)
       4. Adding a Base Layout using `block`s & Extending that Layout to other templates using `extends <layout-name>`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/afa644d5523a54b4175ad36510b27ab62a36aadf)
       5. Finishing the Pug Template by adding conditional `.active` `class` property to elements in templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/5be59c1181e34ad65df90b307f2e3d6844aa4d86)
-   3. **Handlebars** &mdash; *Templates same as HTML* 🥸:
-      1. Working with Handlebars: [Commit Details]()
+   3. **Handlebars** &mdash; *Templating language syntax similar to HTML* 👨🏾:
+      1. Working with Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/dd9a442450a080206e05e43e56240f7febfa21b6)
