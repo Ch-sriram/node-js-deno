@@ -93,4 +93,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
       2. Converting our Project to Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/b3b12e1d32769671411f679218780b3c973c2f2d)
       3. Adding the Layout to Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/e0268ce4253d6c0ad147256720969f9e009fc4fc)
    4. **[EJS](https://ejs.co/#install)** &mdash; *Closest to JS, Simple Syntax & HTML like syntax* 📜⭐\[**Supported in Express Out of the Box**\]
-      1. Working with **EJS**: [Commit Details]()
+      1. Working with **EJS**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/99ae0cb6618dc39d7f5650f21b246955f35e223d)
