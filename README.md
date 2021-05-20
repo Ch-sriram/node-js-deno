@@ -79,7 +79,9 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 2. Sharing Data Across Requests & Users: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/74a44f1998a8d5db558c5e649ca24ea92ecb0e76)
 3. **[Templating Engines](./dynamic-content-templating-engines/README.md#templating-engines)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6962aea80ff55ddd150230d4ad165ab22e9629db)
 4. **Templating Engines**: 
-   1. Installing **[Pug](https://pugjs.org/api/getting-started.html)**, **[Handlebars](https://github.com/express-handlebars/express-handlebars)** & **[EJS](https://ejs.co/#install)**: `npm i --save pug express-handlebars  ejs && npm i -D @types/pug @types/express-handlebars  @types/ejs`
+   1. Installing **[Pug](https://pugjs.org/api/getting-started.html)**, **[Handlebars](https://github.com/express-handlebars/express-handlebars)** & **[EJS](https://ejs.co/#install)**: 
+      1. Packages: `npm i --save pug express-handlebars  ejs`
+      2. TypeScript Support: `npm i -D @types/pug @types/express-handlebars  @types/ejs`
    2. **[Pug](https://pugjs.org/api/getting-started.html)** &mdash; *Minimalist Syntax* 🐶:
       1. Using the **Pug** Templating Engine: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/618aa101f101cd45aa418d569d8c81f6e24c8910) 🌟
       2. Outputting Dynamic Content Using Pug Templates &mdash; `each`, `if`, `else` & `#{<object_name>}`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6250029b9cf7496fe667a4ba4487b492cd2ec234) & [Commit Details - Fixed `.active` class bug](https://github.com/Ch-sriram/node-js-deno/commit/7e27f7bd67e6fcbbc807e228ebe2fd2e181490fe)
