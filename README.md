@@ -79,14 +79,15 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 2. Sharing Data Across Requests & Users: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/74a44f1998a8d5db558c5e649ca24ea92ecb0e76)
 3. **[Templating Engines](./dynamic-content-templating-engines/README.md#templating-engines)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6962aea80ff55ddd150230d4ad165ab22e9629db)
 4. **Templating Engines**: 
-   1. Installing **[Pug](https://pugjs.org/api/getting-started.html)**, **[EJS](https://ejs.co/#install)** & **[Handlebars](https://github.com/express-handlebars/express-handlebars)**: `npm i --save pug ejs express-handlebars && npm i -D @types/pug @types/ejs @types/express-handlebars`
-   2. **Pug** &mdash; *Minimalist Syntax* 🐶:
-      1. Using the **[Pug](https://pugjs.org/api/getting-started.html)** Templating Engine: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/618aa101f101cd45aa418d569d8c81f6e24c8910) 🌟
+   1. Installing **[Pug](https://pugjs.org/api/getting-started.html)**, **[Handlebars](https://github.com/express-handlebars/express-handlebars)** & **[EJS](https://ejs.co/#install)**: `npm i --save pug express-handlebars  ejs && npm i -D @types/pug @types/express-handlebars  @types/ejs`
+   2. **[Pug](https://pugjs.org/api/getting-started.html)** &mdash; *Minimalist Syntax* 🐶:
+      1. Using the **Pug** Templating Engine: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/618aa101f101cd45aa418d569d8c81f6e24c8910) 🌟
       2. Outputting Dynamic Content Using Pug Templates &mdash; `each`, `if`, `else` & `#{<object_name>}`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6250029b9cf7496fe667a4ba4487b492cd2ec234) & [Commit Details - Fixed `.active` class bug](https://github.com/Ch-sriram/node-js-deno/commit/7e27f7bd67e6fcbbc807e228ebe2fd2e181490fe)
       3. Converting Remaining HTML files to Pug templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/8b75ad801c561c2784be948ff2f86a86ea1aefcb)
       4. Adding a Base Layout using `block`s & Extending that Layout to other templates using `extends <layout-name>`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/afa644d5523a54b4175ad36510b27ab62a36aadf)
       5. Finishing the Pug Template by adding conditional `.active` `class` property to elements in templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/5be59c1181e34ad65df90b307f2e3d6844aa4d86)
-   3. **Handlebars** &mdash; *Templating language syntax similar to HTML, but keep the logic separate from the view* 👨🏾:
+   3. **[Handlebars](https://github.com/express-handlebars/express-handlebars)** &mdash; *Templating language syntax similar to HTML, but keep the logic separate from the view* 👨🏾:
       1. Working with Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/dd9a442450a080206e05e43e56240f7febfa21b6)
       2. Converting our Project to Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/b3b12e1d32769671411f679218780b3c973c2f2d)
       3. Adding the Layout to Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/e0268ce4253d6c0ad147256720969f9e009fc4fc)
+   <!-- 4. **[EJS](https://ejs.co/#install)** &mdash; -->
