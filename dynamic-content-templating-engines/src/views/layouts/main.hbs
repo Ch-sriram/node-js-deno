@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ docTitle }}</title>
+  <link rel="stylesheet" href="/css/main.css">
+  {{!-- like in pug, there's no way to have a block in handlebars, there's only one way and that's to conditionally 
+  render the required styling using information sent over when the templates get rendered. --}}
+  {{#if productCSS}}<link rel="stylesheet" href="/css/product.css">{{/if}}
+  {{#if formsCSS}}<link rel="stylesheet" href="/css/forms.css">{{/if}}
+  {{!-- Therefore, to render the stylesheets in L13/L16, the controller has to render the template with `productCSS` and/
+  or `formsCSS` as true/false depending on the situation --}}
+</head>
+<body>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__item-list">
+        {{!-- Even adding the .active class will work the same way as that of what we did from L11 & L12 --}}
+        {{!--if `activeShop` is not defined, then it is false automatically, the same goes for `activeAddProduct`--}}
+        <li class="main-header__item"><a class="{{#if activeShop}}active{{/if}}" href="/">Shop</a></li>
+        <li class="main-header__item"><a class="{{#if activeAddProduct}}active{{/if}}" href="/admin/add-product">Add Product</a></li>
+      </ul>
+    </nav>
+  </header>
+  {{!-- All the code gets injected in here, inside the body, and so, we don't need to add the stuff above. --}}
+  {{{ body }}}
+</body>
+</html>

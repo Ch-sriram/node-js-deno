@@ -41,7 +41,18 @@ router.get(routes.root, (_req: Request, res: Response, _next: NextFunction) => {
     products, // can also send `products` with a diff. name - prods: products
     docTitle: 'Shop',
     path: routes.root,
-    hasNoProducts: !(products.length > 0) // conditionals not allowed in handlebars, and so, calculation done here directly
+    hasNoProducts: !(products.length > 0), // conditionals not allowed in handlebars, and so, calculation done here directly
+    activeShop: true,
+    productCSS: true,
+    // When using handlebars as a templating engine, we configure a lot of things from inside the node/express code
+    // and not actually inside the template. And so, that's the core philosophy of handlebars.
+
+    /**
+     * By default, the default layout is used by every individual template. But we can let the individual
+     * template render its own template in-place of the default layout by passing in `layout: false`, which is by
+     * default true when rendering the template.
+     */
+    // layout: false, // template render will be independent of the default layout
   });
 });
 

@@ -89,3 +89,4 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
    3. **Handlebars** &mdash; *Templating language syntax similar to HTML* 👨🏾:
       1. Working with Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/dd9a442450a080206e05e43e56240f7febfa21b6)
       2. Converting our Project to Handlebars: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/b3b12e1d32769671411f679218780b3c973c2f2d)
+      3. Adding the Layout to Handlebars: [Commit Details]()

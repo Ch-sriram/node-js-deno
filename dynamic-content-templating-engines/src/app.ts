@@ -34,12 +34,18 @@ export const PORT = 3000; // use for localhost
  * We didn't use the app.engine() method for Pug templates because pug templates are built-in for express apps.
  * To `expressHbs` object, we can explicitly send properties such as `extname` which specifies the extension name of the
  * template file, and we also have to specify the location to the `defaultLayout`, which for now is `error-404`'s template.
+ * Note that the `extname` only applies to the extension of the main layout that's being used, not all the files.
  */
 
-app.engine('handlebars', expressHbs({
-  extname: 'handlebars',
-  defaultLayout: '../error-404' // this is only for this particular tutorial -- since `pug` is/was still used as the default templating engine
-})); // all templates should now be named as: 'home.handlebars'
+app.engine(
+  'handlebars', // applies to all the templates except the default layout
+  expressHbs({
+    extname: 'hbs', // applies only for default layout template
+    // defaultLayout: '../error-404' // this is only for this particular tutorial -- since `pug` is/was still used as the default templating engine
+    // defaultLayout by default looks for `views/layout/main.hbs` (since extname in L43 is 'hbs', otherwise, it would 
+    // look for `views/layout/main.handlebars`, iff the extname was 'handlebars')
+  })
+); // all templates should now be named as: 'home.handlebars'
 
 /**
  * Now, to set the view engine to handlebars, we've to use the same name as we used to set the engine using app.engine, as shown below:
@@ -71,8 +77,3 @@ app.use(errorRoutes);
 
 // run on localhost
 app.listen(PORT);
-
-/**
- * This particular version will only work when we're on an unknown route i.e., it generates an error.
- * Eg: http://localhost:3000/daokjsndaksd
- */

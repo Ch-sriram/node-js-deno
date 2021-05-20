@@ -30,6 +30,9 @@ router.get(routes.admin.addProduct, (_req: Request, res: Response, _next: NextFu
   res.render('add-product', {
     docTitle: 'Add Product',
     path: routes.admin.root + routes.admin.addProduct,
+    activeAddProduct: true,
+    productCSS: true,
+    formsCSS: true
   });
 });
 
