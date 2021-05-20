@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add Product</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__item-list">
+        <li class="main-header__item"><a class="active" href="/">Shop</a></li>
+        <li class="main-header__item"><a href="/admin/add-product">Add Product</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Use EJS Tag i.e., '<%  %>' to write vanilla JS code, as seen below -->
+    <% if (products.length <= 0) { %> <!-- Opening tag has to be closed wherever we want the HTML block to end -->
+      <h1>No Products</h1>
+    <% } else { %> <!-- Closing brace for 'if' and start using 'else' right here --> 
+      <h1>My Products</h1>
+      <p>List of all the products...</p>
+      <% products.forEach(product => { %>
+        <div class="grid">
+          <article class="card product-item">
+            <header class="card__header">
+              <h1 class="product__title"><%= product.title %></h1>
+            </header>
+            <div class="card__image">
+              <img src="http://james-hare.com/images/imagenotfound.jpg" alt="Image for 'Not Found Image'">
+            </div>
+            <div class="card__content">
+              <h2 class="product__price">$19.99</h2>
+              <p class="product__description">A very interesting book about so many even more interesting things!</p>
+            </div>
+            <div class="card__actions">
+              <button class="btn">Add to Cart</button>
+            </div>
+          </article>
+        </div>
+      <% }) %> <!-- Closing brace for products.forEach --> 
+    <% } %> <!-- Closing brace for else --> 
+  </main>
+</body>
+</html>
