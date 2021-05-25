@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- In EJS, we use `<%= %>` to simply show the value of the object passed into the respective template (shown below) -->
-  <title><%= docTitle %></title>
-  <link rel="stylesheet" href="/css/main.css">
+<!-- If there are EJS tags inside a comment, they'll be parsed by the EJS engine, and so, we've to be clever about NOT including EJS tags
+     in comments inside EJS templates -->
+<% if (false) { %>
+  To include the head (which is a common block of HTML code), we can use the '<%- include('./includes/end.ejs') %>' where '<%- %>' is the EJS 
+  Output Escape Tag, which can be used to escape and render HTML code. If we use the '<%= %>' EJS Output Value Tag to include the head template
+  then, the template will NOT be parsed as HTML, and it will be parsed as a plain string, which can also lead to XSS attack.
+<% } %>
+<%- include('./includes/head.ejs') %>
 </head>
 <body>
-  <header class="main-header">
-    <nav class="main-header__nav">
-      <ul class="main-header__item-list">
-        <li class="main-header__item"><a href="/">Shop</a></li>
-        <li class="main-header__item"><a href="/admin/add-product">Add Product</a></li>
-      </ul>
-    </nav>
-  </header>
+  <%- include('./includes/navigation.ejs') %>
   <h1>Page Not Found!</h1>
-</body>
-</html>
+<%- include('./includes/end.ejs') %>

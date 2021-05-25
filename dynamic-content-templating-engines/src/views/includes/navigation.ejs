@@ -1,0 +1,11 @@
+<!-- All the templates which need to use the navigation code should include this particular template in their respective template -->
+<header class="main-header">
+  <nav class="main-header__nav">
+    <ul class="main-header__item-list">
+      <!-- The .active class  should be added depending on the template that's being rendered. -->
+      <!-- Both `shop.ts` and `admin.ts` render the template with a  `path` object which can be used to add the .active class to the respective anchor elements -->
+      <li class="main-header__item"><a class="<%= (path && path === '/') ? 'active' : '' %>" href="/">Shop</a></li>
+      <li class="main-header__item"><a class="<%= (path && path === '/admin/add-product') ? 'active' : '' %>" href="/admin/add-product">Add Product</a></li>
+    </ul>
+  </nav>
+</header>
