@@ -7,7 +7,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[NodeJS Course](https://www.udemy.com/course/nodejs-the-complete-guide/)** by **[Maximilian Schwarzmüller](https://twitter.com/maxedapps?s=20)**
 - **[NodeJS Documentation](https://nodejs.org/en/docs/)**
 
-## Details on NodeJS
+## Details on NodeJS & Express
 
 - **[What is NodeJS?](./node-first-app/README.md#what-is-nodejs)**
 - **[Software Requirements](./node-first-app/README.md#software-requirements)**
@@ -19,6 +19,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Event Loop, Timers & process.nexttick - Official NodeJS Docs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)**
 - **[Don't Block the Event Loop - Official NodeJS Docs](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)**
 - **[The Concept of Middleware](https://github.com/Ch-sriram/node-js-deno/blob/main/working-with-express/README.md)**
+- **[What's the Model-View-Controller Architecture?](./model-view-controller/README.md#mvc-model-view-controller-architecture)**
 
 ## Table of Contents ©
 
@@ -26,6 +27,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Understanding Basics](#understanding-basics)**
 - **[Express Framework 🚅🌪💨](#express-framework-)**
 - **[Dynamic Content & Templating Engines](#dynamic-content--templating-engines)**
+- **[Models Views & Controllers](#models-views--controllers-mvc)**
 
 ### Introduction
 
@@ -86,7 +88,7 @@ Contents of this section are in **[dynamic-content-templating-engines](https://g
 1. Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/e03323269365f20a38c606415cf8b1693c03c418)
 2. Sharing Data Across Requests & Users: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/74a44f1998a8d5db558c5e649ca24ea92ecb0e76)
 3. **[Templating Engines](./dynamic-content-templating-engines/README.md#templating-engines)**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6962aea80ff55ddd150230d4ad165ab22e9629db)
-4. **Templating Engines**: 
+4. **Templating Engines**:
    1. Installing **[Pug](https://pugjs.org/api/getting-started.html)**, **[Handlebars](https://github.com/express-handlebars/express-handlebars)** & **[EJS](https://ejs.co/#install)**: 
       1. Packages: `npm i --save pug express-handlebars  ejs`
       2. TypeScript Support: `npm i -D @types/pug @types/express-handlebars  @types/ejs`
@@ -106,3 +108,9 @@ Contents of this section are in **[dynamic-content-templating-engines](https://g
    5. **[Assignment IV](./assignments/assignment-4/images/assignment-4.png)**:
       1. Solution using Pug Templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/3b92efdc0794c3d868b70dea205e1052362adbcb)
       2. Solution using EJS Templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/fc14b9fa75bd7ebf835635b3dcfc35871d4af444)
+
+### Models Views & Controllers (MVC)
+
+Contents of this section are in **[model-view-controller](https://github.com/Ch-sriram/node-js-deno/tree/main/model-view-controller)** directory.
+
+1. [What's MVC?](./model-view-controller/README.md#mvc-model-view-controller-architecture) ⭐⭐
