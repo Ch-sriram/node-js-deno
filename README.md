@@ -115,3 +115,4 @@ Contents of this section are in **[model-view-controller](https://github.com/Ch-
 
 1. [What's MVC?](./model-view-controller/README.md#mvc-model-view-controller-architecture) ⭐⭐
 2. Adding Controllers: [Previous Setup](https://github.com/Ch-sriram/node-js-deno/commit/1cf5aa0e471d259105b0cfb90fc25817ea8e938e) -> [What needs changing?](https://github.com/Ch-sriram/node-js-deno/commit/db2fdad829a525a734934b43d207c9e1a066464c) -> **[Moving Core Logic to `controllers` directory](https://github.com/Ch-sriram/node-js-deno/commit/672bcbe2e968817a4f06cd6e9ccac8e8c293488e)**
+3. Adding all other controllers &mdash; controller for error 404 route: [Commit Details]()
