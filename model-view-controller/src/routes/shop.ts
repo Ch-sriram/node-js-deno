@@ -1,20 +1,10 @@
-import express, {
-  Request,
-  Response,
-  NextFunction
-} from 'express';
+import express from 'express';
+
 import routes from '.';
-import { products } from './admin';
+import productsController from '../controllers/products';
 
 const router = express.Router();
 
-router.get(routes.root, (_req: Request, res: Response, _next: NextFunction) => {
-  console.log('shop.ts', products);
-  res.render('shop', {
-    products,
-    docTitle: 'Shop',
-    path: routes.root
-  });
-});
+router.get(routes.root, productsController.getProducts);
 
 export default router;

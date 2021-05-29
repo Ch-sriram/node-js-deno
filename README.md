@@ -114,4 +114,4 @@ Contents of this section are in **[dynamic-content-templating-engines](https://g
 Contents of this section are in **[model-view-controller](https://github.com/Ch-sriram/node-js-deno/tree/main/model-view-controller)** directory.
 
 1. [What's MVC?](./model-view-controller/README.md#mvc-model-view-controller-architecture) ⭐⭐
-2. Adding Controllers: [Previous Setup](https://github.com/Ch-sriram/node-js-deno/commit/1cf5aa0e471d259105b0cfb90fc25817ea8e938e) -> [What needs changing?]()
+2. Adding Controllers: [Previous Setup](https://github.com/Ch-sriram/node-js-deno/commit/1cf5aa0e471d259105b0cfb90fc25817ea8e938e) -> [What needs changing?](https://github.com/Ch-sriram/node-js-deno/commit/db2fdad829a525a734934b43d207c9e1a066464c) -> **[Changed Directory Structure]()**
