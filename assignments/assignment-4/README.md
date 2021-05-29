@@ -1,5 +1,7 @@
 # Run Instructions
 
+Navigate to either `pug` or `ejs` directory and use any of the following commands:
+
 - **`npm start`** - run + watch
 - **`npm build`** - build into `dist` directory.
 

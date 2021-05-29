@@ -1,0 +1,43 @@
+.users-form {
+  display: grid;
+  margin: 5% auto;
+  background: grey;
+  width: 70vw;
+  border: 1px solid rgb(79, 79, 79);
+  border-radius: 5px;
+  height: 20vh;
+  font-size: 1.5em;
+}
+
+.form-control {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control > input {
+  border-radius: 2px;
+  outline: none;
+  border: 1px solid black;
+  font-size: 1em;
+}
+
+.form-control > label {
+  color: aliceblue;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  border-radius: 3px;
+  height: 35px;
+  background: rgb(208, 196, 196);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+  cursor: pointer;
+}

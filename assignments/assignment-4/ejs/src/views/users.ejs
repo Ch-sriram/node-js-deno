@@ -1,0 +1,17 @@
+<%- include('./includes/head.ejs') %>
+  <link rel="stylesheet" href="/css/users.css">
+</head>
+<body>
+  <%- include('./includes/navigation.ejs') %>
+  <main>
+    <% if (usersList.length <= 0) { %> <!-- if opening brace -->
+      <h1 class="center">No Users Recorded</h1>
+    <% } else { %> <!-- if closing brace && else opening brace -->
+      <ul class="users-list">
+        <% usersList.forEach(user => { %>
+          <li class="users-list__item"><%= user.name %></li>
+        <% }) %>
+      </ul>
+    <% } %> <!-- else closing brace -->
+  </main>
+<%- include('./includes/end.ejs') %>
