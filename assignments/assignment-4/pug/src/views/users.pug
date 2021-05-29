@@ -1,0 +1,13 @@
+extends layouts/main.pug
+
+block styles
+  link(rel="stylesheet", href="/css/users.css")
+
+block content
+  .div
+    if usersList.length <= 0
+      h1.center No Users
+    else
+      ul.users-list
+        each user in usersList
+          li.users-list__item #{user.name}

@@ -95,3 +95,5 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
    4. **[EJS](https://ejs.co/#install)** &mdash; *Closest to JS, Simple Syntax & HTML like syntax* 📜⭐\[**Supported in Express Out of the Box**\]
       1. Working with **EJS**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/99ae0cb6618dc39d7f5650f21b246955f35e223d)
       2. Working on the Layout with Partials/Includes using `<%- include(<path>) %>`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c40815e07aa389549e8a1b066a7e6342f8c5bff5)
+   5. **[Assignment IV](./assignments/assignment-4/images/assignment-4.png)**:
+      1. Solution using Pug Templates: [Commit Details]()

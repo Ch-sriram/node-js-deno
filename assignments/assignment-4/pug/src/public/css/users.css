@@ -1,0 +1,28 @@
+.users-list {
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  flex-direction: column;
+}
+
+.users-list__item {
+  width: 90%;
+  font-size: 2em;
+  text-align: center;
+  margin: 5px;
+  padding: 1px;
+  border: 1px solid grey;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+  cursor: pointer;
+}
+
+.users-list_item:hover,
+.users-list_item:active {
+  box-shadow: 3px 0 10px rgba(0, 0, 0, .4);
+}
+
