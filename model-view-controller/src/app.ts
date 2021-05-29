@@ -17,15 +17,22 @@ const app = express();
 export const PORT = 3000; // use for localhost
 
 /**
- * To add a layout in EJS, firstly, we don't have a layout feature (as in Pug/Hbs) in EJS. We've something known as Partials/Includes.
- * Both Pug and Handlebars also have this feature of Partials/Includes. The idea here is that we've some code blocks in EJS
- * templates which we reuse in some parts of other EJS templates, and so we share them across our templates. So it's a bit like the
- * opposite of a layout, where we've one master layout where we put our individual view templates as a block. Instead, we'll have a couple of shared view parts
- * which we can merge into the views/templates we're creating.
+ * In the current project setup, the 'views' directory needs no changes. But there's NO directory for controllers and models and the 
+ * controllers themselves. Right now, they're all mixed in the 'routes' directory. The way we route, doesn't change, 
+ * i.e., we've the express().Router and the middleware functions like use, get, post, put, etc, but actually, the logic that's executed inside 
+ * these middlewares (eg: L11 -> L17 in shop.ts), is the typical controller logic, i.e., in routes/shop.ts, from L12 -> L17, we're interacting 
+ * with data (products[]) and we're rendering a view (res.render('shop', {...})) and this is exactly the "in-between" logic that makes up a 
+ * controller.
  * 
- * For this reason, we create a new sub-directory which we'll call as `includes` in which we'll have a couple of code blocks which are shared in almost every view.
- * Something like the beginning of every HTML file, the head tags along with the common body elements can be inside the `includes` sub-directory.
- * In this case, we also share the navigation part of the HTML code.
+ * Therefore, we could ofcourse say, we already have controllers, i.e., shop.ts, admin.ts, etc in the 'routes' directory.
+ * BUT, this is NOT scalable, in the sense that, as our app grows larger, the more things need to go into something like the 'routes' 
+ * directory, and each file inside the 'routes' controller can become really really big, and so, that would make managing the code really 
+ * really hard. 
+ * 
+ * Therefore, separating the controller's core logic into separate files, is a good thing, that'll help us separate concerns.
+ * Because we can then quickly see what kind of routes we've and we can directly see what kind of code exactly is executed for a single route, 
+ * and then we navigate simply to the respective controller's file (where the core logic is present) and make changes we want to make.
+ * Hence, creating a 'controllers' directory becomes inevitable, where the code for a lot of main logic will be present.
  */
 
 app.set('view engine', 'ejs'); // ejs is directly supported out of the box in express
