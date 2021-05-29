@@ -29,10 +29,14 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 
 ### Introduction
 
+Contents of this section are in **[node-first-app](https://github.com/Ch-sriram/node-js-deno/tree/main/node-first-app)** directory.
+
 1. First NodeJS App: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/3d01adb458180d2e22eebc510a59b706a9729624)
 2. Writing to a new file using `fs` module with `fs.writeFileSync()` method (Basic Intro): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/76b67ea753649d5743be8c75075e23db0164af78)
 
 ### Understanding Basics
+
+Contents of this section are in **[understanding-basics](https://github.com/Ch-sriram/node-js-deno/tree/main/understanding-basics)** directory.
 
 1. Creating a Node Server: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/40982d85b9387018a88b9e8c1975eba1dd8429f2)
 2. The Node Lifecycle & Event Loop: **[READ THIS BEFORE MOVING AHEAD](./understanding-basics/README.md#node-lifecycle--event-loop)** | [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/5f8c03b229e23561949ba64772a85c334322ea6a)
@@ -52,6 +56,8 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 11. [Debugging using VS Code's NodeJS Debugger](https://code.visualstudio.com/docs/nodejs/nodejs-debugging): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/21014c85c29f0d9e20d6d021f4025eab6a5853cf) 🌟
 
 ### Express Framework 🚅🌪💨
+
+Contents of this section are in **[working-with-express](https://github.com/Ch-sriram/node-js-deno/tree/main/working-with-express)** directory.
 
 1. Prerequisite: A Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/a6ab359b7d460f4329a621e9550ce4e43c53299e)
 2. Installing Express & Using `express()`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c605244443c83725e89f428e7c5f6fec837a292a)
@@ -74,6 +80,8 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 19. **[Assignment III](./assignments/assignment-3/README.md#assignment-question)**: **[My Solution](./assignments/assignment-3/)** 📜
 
 ### Dynamic Content & Templating Engines
+
+Contents of this section are in **[dynamic-content-templating-engines](https://github.com/Ch-sriram/node-js-deno/tree/main/dynamic-content-templating-engines)** directory.
 
 1. Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/e03323269365f20a38c606415cf8b1693c03c418)
 2. Sharing Data Across Requests & Users: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/74a44f1998a8d5db558c5e649ca24ea92ecb0e76)
