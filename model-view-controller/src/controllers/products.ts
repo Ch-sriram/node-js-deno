@@ -6,9 +6,9 @@
 
 import { Request, Response, NextFunction } from 'express';
 import routes from '../routes';
+import Product from '../models/Product';
 
-// Ideally, we need to put any data stores/structures inside models, but for now 'products' can be defined and used in here
-export const products: Array<object> = [];
+const products = Product.getInstance();
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
 export const getAddProduct = (_: Request, res: Response, __: NextFunction) => (
@@ -21,15 +21,18 @@ export const getAddProduct = (_: Request, res: Response, __: NextFunction) => (
 // POST: 'admin/add-product' route's controller: Adds a Product
 export const postAddProduct = (req: Request, res: Response, _: NextFunction) => {
   console.log(JSON.parse(JSON.stringify(req.body)));
-  products.push({ title: req.body.title });
+  const productObj: { title: string } = { title: req.body.title };
+  if (productObj.title !== '') {
+    products.addProduct = productObj;
+  }
   res.redirect(routes.root as string);
 };
 
 // GET: '/' route's controller: Renders a page to show all the added products
 export const getProducts = (_: Request, res: Response, __: NextFunction) => {
-  console.log('shop.ts', products);
+  console.log('shop.ts', products.getProducts);
   res.render('shop', {
-    products,
+    products: products.getProducts,
     docTitle: 'Shop',
     path: routes.root
   });
