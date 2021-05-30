@@ -7,8 +7,7 @@
 import { Request, Response, NextFunction } from 'express';
 import routes from '../routes';
 import Product from '../models/Product';
-
-const products = Product.getInstance();
+import { ProductsType } from '../types/product';
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
 export const getAddProduct = (_: Request, res: Response, __: NextFunction) => (
@@ -20,21 +19,25 @@ export const getAddProduct = (_: Request, res: Response, __: NextFunction) => (
 
 // POST: 'admin/add-product' route's controller: Adds a Product
 export const postAddProduct = (req: Request, res: Response, _: NextFunction) => {
-  console.log(JSON.parse(JSON.stringify(req.body)));
   const productObj: { title: string } = { title: req.body.title };
   if (productObj.title !== '') {
-    products.addProduct = productObj;
+    const product = new Product(productObj);
+    product.save();
   }
   res.redirect(routes.root as string);
 };
 
 // GET: '/' route's controller: Renders a page to show all the added products
 export const getProducts = (_: Request, res: Response, __: NextFunction) => {
-  console.log('shop.ts', products.getProducts);
-  res.render('shop', {
-    products: products.getProducts,
-    docTitle: 'Shop',
-    path: routes.root
+  Product.fetchAllProducts((products: ProductsType) => {
+    console.log('shop.ts', products);
+    setTimeout(() => {
+      res.render('shop', {
+        products,
+        docTitle: 'Shop',
+        path: routes.root
+      });
+    });
   });
 };
 

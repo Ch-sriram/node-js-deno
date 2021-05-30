@@ -1,31 +1,41 @@
 // Contains the data structures related to the 'product' model
 
-// Singleton class
+/**
+ * Instead of using an array to save the data, we should use a file to save the data, something like products.json file.
+ * That way, we can always fetch the data we stored whenever we run/deploy the backend. For that, we'll use the `fs` module.
+ */
+
+import fs from 'fs';
+import path from 'path'; // to use `path.join()` method
+import rootDir from '../utils/path'; // to create a file in a specific path
+import { ProductCallback, ProductsType } from '../types/product';
+
 export class Product {
-  private products: Array<object> = [];
-  private static instance: Product;
+  private static path: string = path.join(rootDir, 'data', 'products.json');
 
-  private constructor() {}
+  constructor(private readonly product: object) {}
+
+  private static getProductsFromFile(callBack: ProductCallback) {
+    fs.readFile(Product.path, (err: any, fileContent: Buffer) => {
+      if (err) {
+        console.error('products.json file not found');
+        callBack([]);
+      } else {
+        callBack(fileContent ? JSON.parse(fileContent.toString()) : []);
+      }
+    });
+  }
   
-  static getInstance() {
-    if (this.instance) return this.instance;
-    this.instance = new Product();
-    return this.instance;
+  save() {
+    Product.getProductsFromFile((products: ProductsType) => {
+      products.push(this.product);
+      console.log('Product.ts', products);
+      fs.writeFile(Product.path, JSON.stringify(products, null, 2), (err: any) => console.log(err));
+    });
   }
-
-  private addNewProduct(title: object) {
-    if (!this.products) throw new Error('No Products found');
-    this.products.push(title);
-  }
-
-  get getProducts() {
-    if (!this.products) throw new Error('No products found');
-    return this.products;
-  }
-
-  set addProduct(title: object) {
-    if (!title) throw new Error('Please pass in a valid title');
-    this.addNewProduct(title);
+  
+  static fetchAllProducts(callBack: ProductCallback) {
+    Product.getProductsFromFile(callBack);
   }
 }
 
