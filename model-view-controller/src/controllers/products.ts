@@ -11,8 +11,8 @@ import { ProductsType } from '../types/product';
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
 export const getAddProduct = (_: Request, res: Response, __: NextFunction) => (
-  res.render('add-product', {
-    docTitle: 'Add Product',
+  res.render('admin/add-product', {
+    docTitle: 'Admin | Add Product',
     path: routes.admin.root + routes.admin.addProduct
   })
 );
@@ -32,9 +32,9 @@ export const getProducts = (_: Request, res: Response, __: NextFunction) => {
   Product.fetchAllProducts((products: ProductsType) => {
     console.log('shop.ts', products);
     setTimeout(() => {
-      res.render('shop', {
+      res.render('shop/product-list', {
         products,
-        docTitle: 'Shop',
+        docTitle: 'Shop | Products List',
         path: routes.root
       });
     });

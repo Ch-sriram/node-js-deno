@@ -118,3 +118,4 @@ Contents of this section are in **[model-view-controller](https://github.com/Ch-
 3. Adding all other controllers &mdash; controller for error 404 route: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/8b6f9981e5fe88af78d8040b12ef5f419a7ce620)
 4. Adding a `Product` Model using `Singleton Pattern`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/e05e0b505faa344f5cb4f6430ce26b6db47c6191)
 5. Storing Data (Model) in Files via the `fs.readFile()` and `fs.writeFile()` functions: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/10437f1c7c5f8e6aa5ef90603c767ec48efdd739)
+6. Restructuring the directory structure for online shop application: [Commit Details]() 🌟🌟
