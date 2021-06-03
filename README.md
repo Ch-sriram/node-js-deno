@@ -119,4 +119,4 @@ Contents of this section are in **[model-view-controller](https://github.com/Ch-
 4. Adding a `Product` Model using `Singleton Pattern`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/e05e0b505faa344f5cb4f6430ce26b6db47c6191)
 5. Storing Data (Model) in Files via the `fs.readFile()` and `fs.writeFile()` functions: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/10437f1c7c5f8e6aa5ef90603c767ec48efdd739)
 6. Restructuring the directory structure for online shop application: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/96d4cbc069686b3a0cd4ec1ed3c47a44d4753752) 🌟🌟
-7. Working on the Navigation &mdash; Adding New Links: [Commit Details]()
+7. Working on the Navigation &mdash; Adding New Links: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c026a108d556ba879972502f006b60a25237a806)
