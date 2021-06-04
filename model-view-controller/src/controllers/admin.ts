@@ -13,9 +13,9 @@ export const getAddProduct = (_: Request, res: Response, __: NextFunction) => (
 
 // POST: 'admin/add-product' route's controller: Adds a Product
 export const postAddProduct = (req: Request, res: Response, _: NextFunction) => {
-  const productObj: { title: string } = { title: req.body.title };
-  if (productObj.title !== '') {
-    const product = new Product(productObj);
+  const { title, imageUrl, price, description } = req.body;
+  if (title !== '' && imageUrl !== '' && price !== '' && description !== '') {
+    const product = new Product(title, imageUrl, price, description);
     product.save();
   }
   res.redirect(routes.shop.root);

@@ -121,3 +121,4 @@ Contents of this section are in **[model-view-controller](https://github.com/Ch-
 6. Restructuring the directory structure for online shop application: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/96d4cbc069686b3a0cd4ec1ed3c47a44d4753752) 🌟🌟
 7. Working on the Navigation &mdash; Adding New Links: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c026a108d556ba879972502f006b60a25237a806)
 8. Registering Routes for New Navigation Items: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/d15eaafb6c7ad37c03a9c8acf5195f77fb6f0689)
+9. Letting the User Add More Fields (vis. `Image URL`, `Price` & `Description`) & Storing that Data: [Commit Details]()

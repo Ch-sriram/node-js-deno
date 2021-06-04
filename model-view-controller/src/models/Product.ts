@@ -8,12 +8,17 @@
 import fs from 'fs';
 import path from 'path'; // to use `path.join()` method
 import rootDir from '../utils/path'; // to create a file in a specific path
-import { ProductCallback, ProductsType } from '../types/product';
+import { ProductCallback, ProductsType, ProductType } from '../types/product';
 
 export class Product {
   private static path: string = path.join(rootDir, 'data', 'products.json');
 
-  constructor(private readonly product: object) {}
+  constructor(
+    private readonly title: string,
+    private readonly imageUrl: string,
+    private readonly price: number,
+    private readonly description: string
+  ) {}
 
   private static getProductsFromFile(callBack: ProductCallback) {
     fs.readFile(Product.path, (err: any, fileContent: Buffer) => {
@@ -28,7 +33,13 @@ export class Product {
   
   save() {
     Product.getProductsFromFile((products: ProductsType) => {
-      products.push(this.product);
+      const product: ProductType = {
+        title: this.title,
+        imageUrl: this.imageUrl,
+        price: this.price,
+        description: this.description
+      };
+      products.push(product);
       console.log('Product.ts', products);
       fs.writeFile(Product.path, JSON.stringify(products, null, 2), (err: any) => console.log(err));
     });
