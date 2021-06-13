@@ -44,6 +44,13 @@ export const getCart = (_: Request, res: Response, __: NextFunction) => {
   });
 };
 
+export const getOrders = (_: Request, res: Response, __: NextFunction) => {
+  res.render('shop/orders', {
+    docTitle: 'Shop | Orders',
+    path: routes.shop.orders
+  });
+};
+
 export const getCheckout = (_: Request, res: Response, __: NextFunction) => {
   res.render('shop/checkout', {
     docTitle: 'Shop | Checkout',
@@ -55,5 +62,6 @@ export default {
   getProducts,
   getIndex,
   getCart,
+  getOrders,
   getCheckout
 };

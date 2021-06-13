@@ -14,6 +14,9 @@ router.get(routes.shop.products, shopController.getProducts);
 // GET: '/cart'
 router.get(routes.shop.cart, shopController.getCart);
 
+// GET: '/orders'
+router.get(routes.shop.orders, shopController.getOrders);
+
 // GET: '/checkout'
 router.get(routes.shop.checkout, shopController.getCheckout);
 
