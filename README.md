@@ -6,6 +6,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 
 - **[NodeJS Course](https://www.udemy.com/course/nodejs-the-complete-guide/)** by **[Maximilian Schwarzmüller](https://twitter.com/maxedapps?s=20)**
 - **[NodeJS Documentation](https://nodejs.org/en/docs/)**
+- **[Ben Awad's Fullstack Tutorial on YouTube](https://www.youtube.com/watch?v=I6ypD7qv3Z8)**
 
 ## Details on NodeJS & Express
 
@@ -28,6 +29,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Express Framework 🚅🌪💨](#express-framework-)**
 - **[Dynamic Content & Templating Engines](#dynamic-content--templating-engines)**
 - **[Models Views & Controllers](#models-views--controllers-mvc)**
+- **[Dynamic Routes & Advanced Models](#dynamic-routes--advanced-models)**
 
 ### Introduction
 
