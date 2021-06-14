@@ -130,4 +130,4 @@ Contents of this section are in **[model-view-controller](https://github.com/Ch-
 
 Contents of this section are in **[dynamic-routes-advanced-models](https://github.com/Ch-sriram/node-js-deno/tree/main/dynamic-routes-advanced-models)** directory.
 
-1. Basic Setup: [Commit Details]()
+1. Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/56eb188ee2ba81ca68b88e4ac86c54a1e9d66c35)
