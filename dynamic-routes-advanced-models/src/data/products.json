@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Book",
+    "imageUrl": "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80",
+    "price": "9",
+    "description": "This is a book which is amazing!"
+  },
+  {
+    "title": "Pen",
+    "imageUrl": "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+    "price": "2.6",
+    "description": "This is a good pen."
+  },
+  {
+    "title": "Narendra Damodardas Modi",
+    "imageUrl": "https://img.etimg.com/thumb/msid-76138042,width-1200,height-900/news/politics-and-nation/70-per-cent-of-people-want-modi-to-be-pm-for-another-term-yediyurappa.jpg",
+    "price": "1",
+    "description": "Prime Minister of Union of India"
+  }
+]

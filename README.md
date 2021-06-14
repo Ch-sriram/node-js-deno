@@ -125,3 +125,9 @@ Contents of this section are in **[model-view-controller](https://github.com/Ch-
 10. Displaying Product Data: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/b057803431718b8faf770682ffa3a35c7a41e66b)
 11. Preparing for Editing & Deleting Products: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/56227a19311841b63c7b081e78926c3125a6b183)
 12. Adding another view/route: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/70617578555ab6e15a31f301ffeb73aacc295bbe)
+
+### Dynamic Routes & Advanced Models
+
+Contents of this section are in **[dynamic-routes-advanced-models](https://github.com/Ch-sriram/node-js-deno/tree/main/dynamic-routes-advanced-models)** directory.
+
+1. Basic Setup: [Commit Details]()
