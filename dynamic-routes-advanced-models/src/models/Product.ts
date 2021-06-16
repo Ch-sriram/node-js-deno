@@ -44,6 +44,18 @@ export class Product {
   static fetchAllProducts(callBack: ProductCallback) {
     Product.getProductsFromFile(callBack);
   }
+
+  static findProductById(id: string, callback: ProductCallback) {
+    // since we don't have a database, we'll have to fetch all the contents of the file and then find the required
+    Product.fetchAllProducts((products: ProductsType) => {
+      const product = products.find((product: ProductType) => product.id === id);
+      if (!product) {
+        callback([]);
+      } else {
+        callback([product]);
+      }
+    })
+  }
 }
 
 export default Product;
