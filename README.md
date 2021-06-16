@@ -135,4 +135,4 @@ Contents of this section are in **[dynamic-routes-advanced-models](https://githu
 1. Basic Setup: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/56eb188ee2ba81ca68b88e4ac86c54a1e9d66c35)
 2. Adding Product ID to the Query Path: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/616512f2cfb055cf847848c2fd78260ca66118a1)
 3. Dynamic Routes (Eg: `/products/:productId`) & Extracting Dynamic Params using `req.params.productId`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/13dbed2d073e2e6e4ec29d462118954ad6bf6ec6)
-4. Loading Product Details Data: [Commit Details]() ✨✨ &mdash; Many concepts covered!
+4. Loading Product Details Data: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/106094655fdd210f6f88bc7570fc3c7774241f8f) ✨✨ &mdash; Many concepts covered!
