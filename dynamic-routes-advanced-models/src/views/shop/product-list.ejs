@@ -26,6 +26,12 @@
               <!-- Even 'Add to Cart' button has to work and make a POST request to POST the data to the webserver -->
               <!-- In reality, we want /add-to-cart/id, where id is some product.id, so that we can easily add that product
               in our cart by its id, but we'll implement that later. -->
+              <%# Details should lead to a page that shows us the product details, and so, on clicking details we should NOT only be 
+                lead to `/products`, but to reach `/products/product_id` where product_id is a unique identifier, and for that, 
+                we've to ensure that every product that's created, has a unique identifier like that, whose code can be seen in 
+                Product.ts model %> 
+              <a href="/products/<%= product.id %>" class="btn">Details</a>
+              <%# On this `/products/product_id` GET request, we can actually show the details of that particular product %> 
               <form action="/add-to-cart" method="POST">
                 <button class="btn" type="submit">Add to Cart</button>
               </form>

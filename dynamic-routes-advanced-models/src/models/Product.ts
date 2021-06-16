@@ -5,6 +5,7 @@ import { ProductCallback, ProductsType, ProductType } from '../types/product';
 
 export class Product {
   private static path: string = path.join(rootDir, 'data', 'products.json');
+  private id!: string;
 
   constructor(
     private readonly title: string,
@@ -25,8 +26,10 @@ export class Product {
   }
   
   save() {
+    this.id = Math.random().toString();
     Product.getProductsFromFile((products: ProductsType) => {
       const product: ProductType = {
+        id: this.id,
         title: this.title,
         imageUrl: this.imageUrl,
         price: this.price,
