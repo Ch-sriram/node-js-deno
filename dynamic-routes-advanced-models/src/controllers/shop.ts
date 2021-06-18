@@ -48,11 +48,18 @@ export const getProduct = (req: Request, res: Response) => {
   });
 };
 
-export const getCart = (_: Request, res: Response, __: NextFunction) => {
+export const getCart = (_: Request, res: Response) => {
   res.render('shop/cart', {
     docTitle: 'Shop | Cart',
     path: routes.shop.cart
   });
+};
+
+export const postCart = (req: Request, res: Response) => {
+  // for now we'll just get the productId and redirect to '/cart'. Later, we'll have to create a Model for Cart and store Cart details there
+  const { productId } = req.body;
+  console.log(productId);
+  res.redirect(routes.shop.cart);
 };
 
 export const getOrders = (_: Request, res: Response, __: NextFunction) => {
@@ -74,6 +81,7 @@ export default {
   getProduct,
   getIndex,
   getCart,
+  postCart,
   getOrders,
   getCheckout
 };

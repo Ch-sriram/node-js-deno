@@ -1,0 +1,7 @@
+<form action="/cart" method="POST">
+  <button type="submit" class="btn">Add to Cart</button>
+  <%# Since this is a POST request, we can send the data as part of the POST request's body, as Form Details.
+    And so, we can send the required details in an input box, which is hidden by default in the UI, but encodes the required details and sends it to the webserver %>
+  <input type="hidden" name="productId" value="<%= product.id %>">
+  <%# We can add a dynamic segment for POST requests also, that way, we can get the data even using the URL query params %>
+</form>

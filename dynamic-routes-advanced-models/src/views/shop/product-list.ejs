@@ -31,10 +31,11 @@
                 we've to ensure that every product that's created, has a unique identifier like that, whose code can be seen in 
                 Product.ts model %> 
               <a href="/products/<%= product.id %>" class="btn">Details</a>
-              <%# On this `/products/product_id` GET request, we can actually show the details of that particular product %> 
-              <form action="/add-to-cart" method="POST">
-                <button class="btn" type="submit">Add to Cart</button>
-              </form>
+              <%# On this `/products/product_id` GET request, we can actually show the details of that particular product %>
+              <%# SO Answer: https://stackoverflow.com/a/46833895/9458784
+                In order to pass the `product` object available in this template, since include is being used
+                inside this looping structure, we've to pass `product` object to include as the second argument in an object  %>
+              <%- include('../includes/shop/add-to-cart.ejs', { product }) %>
             </div>
           </article>
         <% }) %>
