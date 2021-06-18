@@ -38,10 +38,14 @@ export const getProduct = (req: Request, res: Response) => {
   const productId = req.params[id]; // params object from the `req` contains the dynamic segment of the dynamic route we defined in shop routes
   // console.log('productId', productId);
   // Instead of logging the 'productId' we'll use the 'productId' to fetch a product from the available products
-  Product.findProductById(productId, (products: ProductsType) => console.log(products));
-
-  // for now, we'll just redirect to '/', but we actually will render a separate page on this route
-  res.redirect(routes.shop.root);
+  Product.findProductById(productId, (products: ProductsType) => {
+    const product = products[0];
+    res.render('shop/product-detail', {
+      product,
+      docTitle: product.title,
+      path: routes.shop.products.root
+    });
+  });
 };
 
 export const getCart = (_: Request, res: Response, __: NextFunction) => {
