@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import routes, { dynamicRouteConstants } from '../routes';
 import Product from '../models/Product';
-import { ProductsType } from '../types/product';
+import Cart from '../models/Cart';
 
 // GET: '/' route's controller: Renders a page to show all the added products
 export const getIndex = (_: Request, res: Response, __: NextFunction) => {
-  Product.fetchAllProducts((products: ProductsType) => {
+  Product.fetchAllProducts((products: AppTypes.ProductsType) => {
     // console.log('shop.ts', products);
     setTimeout(() => {
       res.render('shop/index', {
@@ -19,7 +19,7 @@ export const getIndex = (_: Request, res: Response, __: NextFunction) => {
 
 // GET: '/products'
 export const getProducts = (_: Request, res: Response, __: NextFunction) => {
-  Product.fetchAllProducts((products: ProductsType) => {
+  Product.fetchAllProducts((products: AppTypes.ProductsType) => {
     // console.log('shop.ts', products);
     setTimeout(() => {
       res.render('shop/product-list', {
@@ -38,7 +38,7 @@ export const getProduct = (req: Request, res: Response) => {
   const productId = req.params[id]; // params object from the `req` contains the dynamic segment of the dynamic route we defined in shop routes
   // console.log('productId', productId);
   // Instead of logging the 'productId' we'll use the 'productId' to fetch a product from the available products
-  Product.findProductById(productId, (products: ProductsType) => {
+  Product.findProductById(productId, (products: AppTypes.ProductsType) => {
     const product = products[0];
     res.render('shop/product-detail', {
       product,
@@ -56,9 +56,11 @@ export const getCart = (_: Request, res: Response) => {
 };
 
 export const postCart = (req: Request, res: Response) => {
-  // for now we'll just get the productId and redirect to '/cart'. Later, we'll have to create a Model for Cart and store Cart details there
   const { productId } = req.body;
-  console.log(productId);
+  Product.findProductById(productId, (products: AppTypes.ProductsType) => {
+    const product = products[0];
+    Cart.addProduct(productId, product.price);
+  });
   res.redirect(routes.shop.cart);
 };
 

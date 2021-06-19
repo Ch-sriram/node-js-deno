@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import rootDir from '../utils/path';
-import { ProductCallback, ProductsType, ProductType } from '../types/product';
 
 export class Product {
   private static path: string = path.join(rootDir, 'data', 'products.json');
@@ -14,7 +13,7 @@ export class Product {
     private readonly description: string
   ) {}
 
-  private static getProductsFromFile(callBack: ProductCallback) {
+  private static getProductsFromFile(callBack: AppTypes.ProductCallback) {
     fs.readFile(Product.path, (err: any, fileContent: Buffer) => {
       if (err) {
         console.error('products.json file not found');
@@ -27,8 +26,8 @@ export class Product {
   
   save() {
     this.id = Math.random().toString();
-    Product.getProductsFromFile((products: ProductsType) => {
-      const product: ProductType = {
+    Product.getProductsFromFile((products: AppTypes.ProductsType) => {
+      const product: AppTypes.ProductType = {
         id: this.id,
         title: this.title,
         imageUrl: this.imageUrl,
@@ -41,14 +40,14 @@ export class Product {
     });
   }
   
-  static fetchAllProducts(callBack: ProductCallback) {
+  static fetchAllProducts(callBack: AppTypes.ProductCallback) {
     Product.getProductsFromFile(callBack);
   }
 
-  static findProductById(id: string, callback: ProductCallback) {
+  static findProductById(id: string, callback: AppTypes.ProductCallback) {
     // since we don't have a database, we'll have to fetch all the contents of the file and then find the required
-    Product.fetchAllProducts((products: ProductsType) => {
-      const product = products.find((product: ProductType) => product.id === id);
+    Product.fetchAllProducts((products: AppTypes.ProductsType) => {
+      const product = products.find((product: AppTypes.ProductType) => product.id === id);
       if (!product) {
         callback([]);
       } else {

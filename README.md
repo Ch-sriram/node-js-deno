@@ -138,3 +138,4 @@ Contents of this section are in **[dynamic-routes-advanced-models](https://githu
 4. Loading Product Details Data: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/106094655fdd210f6f88bc7570fc3c7774241f8f) ✨✨ &mdash; Many concepts covered!
 5. Rendering the Product Detail View: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/705f92f080439801a15655c3481bc0bf4e220818)
 6. Passing Data with `POST` Requests: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/b164f1e3eb18c1011a10f07badeee1ddc9b9fbcb)
+7. Adding a Cart Model: [Commit Details]() ✨✨✨ V.V.Imp Section &mdash; Understand this before moving on!

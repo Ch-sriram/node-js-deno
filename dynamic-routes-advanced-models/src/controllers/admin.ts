@@ -1,7 +1,7 @@
+/// <reference path="../types/product.d.ts" />
 import { Request, Response, NextFunction } from 'express';
 import routes from '../routes';
 import Product from '../models/Product';
-import { ProductsType } from '../types/product';
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
 export const getAddProduct = (_: Request, res: Response, __: NextFunction) => (
@@ -23,7 +23,7 @@ export const postAddProduct = (req: Request, res: Response, _: NextFunction) => 
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
 export const getProducts = (_: Request, res: Response, __: NextFunction) => {
-  Product.fetchAllProducts((products: ProductsType) => {
+  Product.fetchAllProducts((products: AppTypes.ProductsType) => {
     console.log('admin.ts', products);
     setTimeout(() => {
       res.render('admin/product-list', {
