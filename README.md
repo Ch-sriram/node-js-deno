@@ -140,4 +140,4 @@ Contents of this section are in **[dynamic-routes-advanced-models](https://githu
 6. Passing Data with `POST` Requests: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/b164f1e3eb18c1011a10f07badeee1ddc9b9fbcb)
 7. Adding a Cart Model: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/cefbbb55cab2a04ca56d232815dd6fce0834aed9) ✨✨✨ V.V.Imp Section &mdash; Understand this before moving on!
 8. Accessing Query Parameters in Controllers using `request.query`
-   1. Rendering the Edit Page Manually: [Commit Details]()
+   1. Rendering the Edit Page Manually: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/2dadadceab34bc2d76f2ed30b099dc9f1b1da66a)
