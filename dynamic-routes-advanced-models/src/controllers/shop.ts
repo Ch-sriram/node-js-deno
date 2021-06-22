@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import routes, { dynamicRouteConstants } from '../routes';
+import routes, { dynamicSegment } from '../routes';
 import Product from '../models/Product';
 import Cart from '../models/Cart';
 
@@ -33,7 +33,7 @@ export const getProducts = (_: Request, res: Response, __: NextFunction) => {
 
 // GET: '/products/abc123', '/products/2331fd23', etc
 export const getProduct = (req: Request, res: Response) => {
-  const { id } = dynamicRouteConstants.shop.products; // id is the same as the dynamic portion of the name given in the dynamic route
+  const { id } = dynamicSegment.products; // id is the same as the dynamic portion of the name given in the dynamic route
   // i.e., id -> 'productId' since the route's dynamic segment is: '/products/:productId'
   const productId = req.params[id]; // params object from the `req` contains the dynamic segment of the dynamic route we defined in shop routes
   // console.log('productId', productId);

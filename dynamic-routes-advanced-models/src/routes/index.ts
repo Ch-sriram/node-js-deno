@@ -1,9 +1,7 @@
 // Contains only the constants of the dynamic routes in the 'routes' object
-export const dynamicRouteConstants = {
-  shop: {
-    products: {
-      id: 'productId'
-    }
+export const dynamicSegment = {
+  products: {
+    id: 'productId'
   }
 } as const;
 
@@ -12,6 +10,10 @@ export const routes = {
   admin: {
     root: '/admin',
     addProduct: '/add-product',
+    editProduct: {
+      root: '/edit-product',
+      id: `/:${dynamicSegment.products.id}` // '/:productId'
+    },
     products: '/products'
   },
   shop: {
@@ -20,7 +22,7 @@ export const routes = {
     orders: '/orders',
     products: {
       root: '/products',
-      id: `/:${dynamicRouteConstants.shop.products.id}` // '/:productId'
+      id: `/:${dynamicSegment.products.id}` // '/:productId'
     },
     checkout: '/checkout'
   }
