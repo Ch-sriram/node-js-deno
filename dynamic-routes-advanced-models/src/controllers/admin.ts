@@ -58,17 +58,26 @@ export const getEditProduct = (req: Request, res: Response) => {
     return res.redirect(routes.shop.root);
   }
 
-  return res.render('admin/add-edit-product', {
-    docTitle: 'Admin | Edit Product',
-    path: routes.admin.root + routes.admin.editProduct.root,
-    editing: editMode
-  });
-
   /**
-   * At this particular moment, we can access the `edit-product` route only when there's a query param `edit` that's
-   * send along with the route manually, i.e., we need to manually type in the following route:
-   * `/admin/edit-product/<product_id>?edit=true`, where <product_id> is a valid productId, such as '23456' (w/o the single quotes)
+   * In order to pre-populate the data that's already present in the product.json file, we need to fetch the product using the productId
+   * which is sent as the dynamic segment to the `edit-product/:productId` route
    */
+
+  const { productId } = req.params;
+
+  Product.findProductById(productId, (products: AppTypes.ProductsType) => {
+    const product = products[0];
+    if (!product) {
+      // we should actually show an error, but for now, we're redirecting to '/' route, which is the `shop.root` route
+      return res.redirect(routes.shop.root);
+    }
+    return res.render('admin/add-edit-product', {
+      docTitle: 'Admin | Edit Product',
+      path: routes.admin.root + routes.admin.editProduct.root,
+      editing: editMode,
+      product
+    });
+  });
 };
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
