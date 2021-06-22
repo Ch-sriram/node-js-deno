@@ -142,3 +142,4 @@ Contents of this section are in **[dynamic-routes-advanced-models](https://githu
 8. Accessing Query Parameters in Controllers using `request.query`
    1. Rendering the Edit Page Manually: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/2dadadceab34bc2d76f2ed30b099dc9f1b1da66a)
    2. Pre-populating the Edit Product Page w. Data: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c523b527c54e12e880af5267761ac403ba53af9f)
+   3. Linking to the Edit Page &mdash; Reaching Edit Product Page through `Edit` button on the respective product: [Commit Details]() ⭐

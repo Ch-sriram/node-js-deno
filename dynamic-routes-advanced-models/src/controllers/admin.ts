@@ -78,6 +78,11 @@ export const getEditProduct = (req: Request, res: Response) => {
       product
     });
   });
+
+  /**
+   * for now, when we edit the product and click on the 'Update Product' button, we don't handle that handle that on 
+   * '/edit-product' POST request, which will be the next thing we'll do.
+   */
 };
 
 // GET: 'admin/add-product' route's controller: renders Add Product form

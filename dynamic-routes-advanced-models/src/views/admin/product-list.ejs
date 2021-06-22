@@ -30,12 +30,8 @@
               <p class="product__description"><%= product.description %></p>
             </div>
             <div class="card__actions">
-              <!-- Clicking the buttons below should make a GET request, since we'll have to go to a page
-              where we can edit/delete the product details. But for now, we'll leave it as a normal link -->
-
-              <!-- Adding something edit/product/:id would be really useful, but to an 'id' we need such information
-              which we'll add later -->
-              <a href="/admin/edit-product" class="btn">Edit</a>
+              <!-- Now we'll inject the productId using the `product.id` and then add a query param for the 'Edit' button -->
+              <a href="/admin/edit-product/<%= product.id %>?edit=true" class="btn">Edit</a>
               <form action="/admin/delete-product" method="POST">
                 <button class="btn" type="submit">Delete</button>
               </form>
