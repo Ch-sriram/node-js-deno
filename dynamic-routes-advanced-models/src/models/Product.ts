@@ -4,9 +4,9 @@ import rootDir from '../utils/path';
 
 export class Product {
   private static path: string = path.join(rootDir, 'data', 'products.json');
-  private id!: string;
 
   constructor(
+    private id: string | null,
     private readonly title: string,
     private readonly imageUrl: string,
     private readonly price: number,
@@ -25,18 +25,23 @@ export class Product {
   }
   
   save() {
-    this.id = Math.random().toString();
     Product.getProductsFromFile((products: AppTypes.ProductsType) => {
-      const product: AppTypes.ProductType = {
-        id: this.id,
-        title: this.title,
-        imageUrl: this.imageUrl,
-        price: this.price,
-        description: this.description
-      };
-      products.push(product);
-      console.log('Product.ts', products);
-      fs.writeFile(Product.path, JSON.stringify(products, null, 2), (err: any) => console.log(err));
+      const { id, title, imageUrl, price, description } = this;
+      if (id) { // product exists, therefore, update and save
+        const existingProductIndex = products.findIndex(product => product.id === this.id);
+        const updatedProducts = [...products];
+        updatedProducts[existingProductIndex] = {
+          ...this, id, title, imageUrl, price, description
+        };
+        fs.writeFile(Product.path, JSON.stringify(updatedProducts, null, 2), (err: any) => console.log(err));
+      } else { // this is a brand new product
+        this.id = Math.random().toString();
+        const product: AppTypes.ProductType = {
+          id: this.id, title, imageUrl, price, description
+        };
+        products.push(product);
+        fs.writeFile(Product.path, JSON.stringify(products, null, 2), (err: any) => console.log(err));
+      }
     });
   }
   

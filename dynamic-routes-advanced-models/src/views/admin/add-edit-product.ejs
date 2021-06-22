@@ -30,6 +30,15 @@
         <label for="description">Description</label>
         <textarea name="description" id="description" rows="5"><%= editing ? product.description : undefined %></textarea>
       </div>
+      <!-- 
+        We'll add a new hidden input which stores the existing `productId` iff when we're editing the product, i.e., when `editing`
+        information is available from the respective controller for edit route. When the form is submitted, we can use the
+        name of the input to access its value
+       -->
+       <!-- Input name is `productId`, and so in the controller, we can access `req.body.productId` -->
+      <% if (editing)  { %>
+        <input type="hidden" name="productId" value="<%= product.id %>" />
+      <% } %>
       <!--
         We've the information about `editing` from both the '/add-product' and '/edit-product' routes. So we can use that information
         to dynamically render the text on the button as follows:

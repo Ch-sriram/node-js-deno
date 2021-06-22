@@ -21,7 +21,7 @@ export const getAddProduct = (_: Request, res: Response) => (
 export const postAddProduct = (req: Request, res: Response, _: NextFunction) => {
   const { title, imageUrl, price, description } = req.body;
   if (title !== '' && imageUrl !== '' && price !== '' && description !== '') {
-    const product = new Product(title, imageUrl, price, description);
+    const product = new Product(null, title, imageUrl, price, description);
     product.save();
   }
   res.redirect(routes.shop.root);
@@ -78,11 +78,13 @@ export const getEditProduct = (req: Request, res: Response) => {
       product
     });
   });
+};
 
-  /**
-   * for now, when we edit the product and click on the 'Update Product' button, we don't handle that handle that on 
-   * '/edit-product' POST request, which will be the next thing we'll do.
-   */
+export const postEditProduct = (req: Request, res: Response) => {
+  const { productId, title, imageUrl, price, description } = req.body;
+  const updatedProduct = new Product(productId, title, imageUrl, Number(price), description);
+  updatedProduct.save();
+  res.redirect(routes.admin.root + routes.admin.products);
 };
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
@@ -103,5 +105,6 @@ export default {
   getAddProduct,
   postAddProduct,
   getEditProduct,
+  postEditProduct,
   getProducts
 };

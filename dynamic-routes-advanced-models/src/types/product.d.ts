@@ -9,7 +9,7 @@ declare namespace AppTypes {
     totalPrice: number;
   };
   export interface ProductType {
-    readonly id: string;
+    readonly id: string | null;
     readonly title: string;
     readonly imageUrl: string;
     readonly price: number;
