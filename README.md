@@ -143,4 +143,4 @@ Contents of this section are in **[dynamic-routes-advanced-models](https://githu
    1. Rendering the Edit Page Manually: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/2dadadceab34bc2d76f2ed30b099dc9f1b1da66a)
    2. Pre-populating the Edit Product Page w. Data: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c523b527c54e12e880af5267761ac403ba53af9f)
    3. Linking to the Edit Page &mdash; Reaching Edit Product Page through `Edit` button on the respective product: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/976400d3353e218a4a8b6fb7982f93edd4e2005c) ⭐
-   4. Updating Product Data Model to Enable Editing Product Data: [Commit Details]()
+   4. Updating Product Data Model to Enable Editing Product Data: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c0b2ad67bf3b7dd3e7c43fe3f80b25bd3a8025da)
