@@ -87,6 +87,11 @@ export const postEditProduct = (req: Request, res: Response) => {
   res.redirect(routes.admin.root + routes.admin.products);
 };
 
+export const postDeleteProduct = (req: Request, res: Response) => {
+  // const { productId } = req.body;
+
+};
+
 // GET: 'admin/add-product' route's controller: renders Add Product form
 export const getProducts = (_: Request, res: Response, __: NextFunction) => {
   Product.fetchAllProducts((products: AppTypes.ProductsType) => {
@@ -106,5 +111,6 @@ export default {
   postAddProduct,
   getEditProduct,
   postEditProduct,
+  postDeleteProduct,
   getProducts
 };

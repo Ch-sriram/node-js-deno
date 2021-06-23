@@ -33,6 +33,8 @@
               <!-- Now we'll inject the productId using the `product.id` and then add a query param for the 'Edit' button -->
               <a href="/admin/edit-product/<%= product.id %>?edit=true" class="btn">Edit</a>
               <form action="/admin/delete-product" method="POST">
+                <!-- We'll have a hidden form field through which we can extract the `productId` in the controller -->
+                <input type="hidden" name="productId" value="<%= product.id %>" />
                 <button class="btn" type="submit">Delete</button>
               </form>
             </div>

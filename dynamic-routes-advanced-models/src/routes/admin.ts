@@ -22,4 +22,7 @@ router.get(editRoute, adminController.getEditProduct);
 // for POST route, there's NO need to add query params, since the data comes through parameters in the form
 router.post(routes.admin.editProduct.root, adminController.postEditProduct);
 
+// '/admin/delete-product' => POST ['/admin' is prepended in app.ts in app.use() middleware]
+router.post(routes.admin.deleteProduct, adminController.postDeleteProduct);
+
 export default router;

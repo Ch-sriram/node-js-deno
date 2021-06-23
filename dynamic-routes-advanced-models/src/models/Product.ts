@@ -44,6 +44,17 @@ export class Product {
       }
     });
   }
+
+  static deleteById(id: string | number) {
+    Product.getProductsFromFile((products: AppTypes.ProductsType) => {
+      const updatedProducts = products.filter(product => product.id !== id);
+      fs.writeFile(this.path, JSON.stringify(updatedProducts, null, 2), (err: NodeJS.ErrnoException | null) => console.log(err));
+
+      /**
+       * For now, we're just logging to when writing the file, but we also have to delete the same product from the cart as well.
+       */
+    });
+  }
   
   static fetchAllProducts(callBack: AppTypes.ProductCallback) {
     Product.getProductsFromFile(callBack);

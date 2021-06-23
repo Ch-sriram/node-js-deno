@@ -14,6 +14,7 @@ export const routes = {
       root: '/edit-product',
       id: `/:${dynamicSegment.products.id}` // '/:productId'
     },
+    deleteProduct: '/delete-product',
     products: '/products'
   },
   shop: {
