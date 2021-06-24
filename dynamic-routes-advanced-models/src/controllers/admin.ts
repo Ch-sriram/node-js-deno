@@ -88,8 +88,16 @@ export const postEditProduct = (req: Request, res: Response) => {
 };
 
 export const postDeleteProduct = (req: Request, res: Response) => {
-  // const { productId } = req.body;
+  const { productId } = req.body;
+  // It's always better to add a callback to deleteById method
+  // to redirect exactly after the deletion completes.
+  Product.deleteById(productId);
+  return res.redirect(routes.admin.root + routes.admin.products);
 
+  // L95 will be called immediately after the L94 is called,
+  // And inside L94's call, there's asynchronous code running,
+  // therefore, the comments from L92 to L93 now might make 
+  // sense to us.
 };
 
 // GET: 'admin/add-product' route's controller: renders Add Product form

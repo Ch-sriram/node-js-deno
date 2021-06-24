@@ -36,6 +36,22 @@ export class Cart {
       fs.writeFile(this.path, JSON.stringify(cart, null, 2), (err: NodeJS.ErrnoException | null) => console.log(err));
     })
   }
+
+  static deleteProduct(id: string | number, productPrice: number) {
+    fs.readFile(this.path, (err: NodeJS.ErrnoException | null, fileContent: Buffer) => {
+      if (err) {
+        return;
+      }
+      let updatedCart = { ...JSON.parse(fileContent.toString()) } as AppTypes.CartObjectType;
+      const product = updatedCart.products.find(product => product.id === id);
+      if (product) {
+        const totalPrice = updatedCart.totalPrice - (productPrice * product.quantity);
+        const products = updatedCart.products.filter(product => product.id !== id);
+        updatedCart = { ...updatedCart, products, totalPrice };
+      }
+      fs.writeFile(this.path, JSON.stringify(updatedCart, null, 2), (err: NodeJS.ErrnoException | null) => (console.log(err)));
+    });
+  }
 }
 
 export default Cart;
