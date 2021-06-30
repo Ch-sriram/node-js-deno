@@ -147,4 +147,4 @@ Contents of this section are in **[dynamic-routes-advanced-models](https://githu
 9. Adding the Product Delete Functionality
    1. Changes in Product Model: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/16a45a87c42f1c374cfb3e2c5c7bb14bbb4c451f)
    2. Deleting Cart Items *i.e.*, Changes in Cart Model: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/d1f5398e292f30f353e20a14c6a8ec8726c9ae37)
-10. Fixing Edit Product Bug In Relation to Cart Pricing: [Commit Details]()
+10. Fixing Edit Product Bug In Relation to Cart Pricing: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/212f075234022a65fc15d378549680c12683d570) &mdash; ⭐⭐ *focus on `save()` changes && new methods in both `Product` and `Cart` models*
