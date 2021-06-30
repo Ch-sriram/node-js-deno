@@ -52,6 +52,32 @@ export class Cart {
       fs.writeFile(this.path, JSON.stringify(updatedCart, null, 2), (err: NodeJS.ErrnoException | null) => (console.log(err)));
     });
   }
+
+  static getCartJSONPath() {
+    return this.path;
+  }
+
+  static updateCartPrice(callback: AppTypes.CartObjectCallback, updatedCartItem?: AppTypes.CartItemDetails) {
+    if (updatedCartItem && updatedCartItem.id) {
+      fs.readFile(this.path, (err: NodeJS.ErrnoException | null, fileContent: Buffer) => {
+        if (err) {
+          console.error(err);
+          throw err;
+        }        
+        const cartDetails = { ...JSON.parse(fileContent.toString()) } as AppTypes.CartObjectType;
+        const updatedCartItemIndex = cartDetails.products.findIndex(product => product.id === updatedCartItem.id);
+        let updatedCartDetails = { ...cartDetails };
+        if (updatedCartItemIndex > -1) {          
+          const { oldPrice, newPrice } = updatedCartItem;
+          console.log(oldPrice, newPrice);
+          const updatedItemQuantity = cartDetails.products[updatedCartItemIndex].quantity;
+          const updatedTotalPrice = (cartDetails.totalPrice - (oldPrice * updatedItemQuantity)) + (updatedItemQuantity * newPrice);
+          updatedCartDetails = { ...updatedCartDetails, totalPrice: updatedTotalPrice };
+        }
+        callback(updatedCartDetails);
+      });
+    }
+  }
 }
 
 export default Cart;

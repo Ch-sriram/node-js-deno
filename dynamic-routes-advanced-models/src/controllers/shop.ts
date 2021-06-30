@@ -5,29 +5,31 @@ import Cart from '../models/Cart';
 
 // GET: '/' route's controller: Renders a page to show all the added products
 export const getIndex = (_: Request, res: Response, __: NextFunction) => {
-  Product.fetchAllProducts((products: AppTypes.ProductsType) => {
-    // console.log('shop.ts', products);
-    setTimeout(() => {
-      res.render('shop/index', {
-        products,
-        docTitle: 'Shop',
-        path: routes.shop.root
+  Product.fetchAllProducts(products => {
+    if (products) {
+      setTimeout(() => {
+        res.render('shop/index', {
+          products,
+          docTitle: 'Shop',
+          path: routes.shop.root
+        });
       });
-    });
+    }
   });
 };
 
 // GET: '/products'
 export const getProducts = (_: Request, res: Response, __: NextFunction) => {
-  Product.fetchAllProducts((products: AppTypes.ProductsType) => {
-    // console.log('shop.ts', products);
-    setTimeout(() => {
-      res.render('shop/product-list', {
-        products,
-        docTitle: 'Shop | Products',
-        path: routes.shop.products
+  Product.fetchAllProducts(products => {
+    if (products) {
+      setTimeout(() => {
+        res.render('shop/product-list', {
+          products,
+          docTitle: 'Shop | Products',
+          path: routes.shop.products
+        });
       });
-    });
+    }
   });
 };
 
@@ -38,13 +40,15 @@ export const getProduct = (req: Request, res: Response) => {
   const productId = req.params[id]; // params object from the `req` contains the dynamic segment of the dynamic route we defined in shop routes
   // console.log('productId', productId);
   // Instead of logging the 'productId' we'll use the 'productId' to fetch a product from the available products
-  Product.findProductById(productId, (products: AppTypes.ProductsType) => {
-    const product = products[0];
-    res.render('shop/product-detail', {
-      product,
-      docTitle: product.title,
-      path: routes.shop.products.root
-    });
+  Product.findProductById(productId, products => {
+    if (products) {
+      const product = products[0];
+      res.render('shop/product-detail', {
+        product,
+        docTitle: product.title,
+        path: routes.shop.products.root
+      });
+    }
   });
 };
 
@@ -57,9 +61,11 @@ export const getCart = (_: Request, res: Response) => {
 
 export const postCart = (req: Request, res: Response) => {
   const { productId } = req.body;
-  Product.findProductById(productId, (products: AppTypes.ProductsType) => {
-    const product = products[0];
-    Cart.addProduct(productId, product.price);
+  Product.findProductById(productId, products => {
+    if (products) {
+      const product = products[0];
+      Cart.addProduct(productId, product.price);
+    }
   });
   res.redirect(routes.shop.cart);
 };

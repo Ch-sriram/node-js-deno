@@ -65,18 +65,20 @@ export const getEditProduct = (req: Request, res: Response) => {
 
   const { productId } = req.params;
 
-  Product.findProductById(productId, (products: AppTypes.ProductsType) => {
-    const product = products[0];
-    if (!product) {
-      // we should actually show an error, but for now, we're redirecting to '/' route, which is the `shop.root` route
-      return res.redirect(routes.shop.root);
+  Product.findProductById(productId, products => {
+    if (products) {
+      const product = products[0];
+      if (!product) {
+        // we should actually show an error, but for now, we're redirecting to '/' route, which is the `shop.root` route
+        return res.redirect(routes.shop.root);
+      }
+      return res.render('admin/add-edit-product', {
+        docTitle: 'Admin | Edit Product',
+        path: routes.admin.root + routes.admin.editProduct.root,
+        editing: editMode,
+        product
+      });
     }
-    return res.render('admin/add-edit-product', {
-      docTitle: 'Admin | Edit Product',
-      path: routes.admin.root + routes.admin.editProduct.root,
-      editing: editMode,
-      product
-    });
   });
 };
 
@@ -102,15 +104,17 @@ export const postDeleteProduct = (req: Request, res: Response) => {
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
 export const getProducts = (_: Request, res: Response, __: NextFunction) => {
-  Product.fetchAllProducts((products: AppTypes.ProductsType) => {
-    console.log('admin.ts', products);
-    setTimeout(() => {
-      res.render('admin/product-list', {
-        products,
-        docTitle: 'Admin | Products',
-        path: routes.admin.root + routes.admin.products
+  Product.fetchAllProducts(products => {
+    if (products) {
+      console.log('admin.ts', products);
+      setTimeout(() => {
+        res.render('admin/product-list', {
+          products,
+          docTitle: 'Admin | Products',
+          path: routes.admin.root + routes.admin.products
+        });
       });
-    });
+    }
   });
 };
 

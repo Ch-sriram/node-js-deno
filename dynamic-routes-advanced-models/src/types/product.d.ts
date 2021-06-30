@@ -1,14 +1,14 @@
 declare namespace AppTypes {
   // Common Interfaces
-  export interface CartProductType {
+  interface CartProductType {
     id: string;
     quantity: number;
   };
-  export interface CartObjectType {
+  interface CartObjectType {
     products: CartProductsType;
     totalPrice: number;
   };
-  export interface ProductType {
+  interface ProductType {
     readonly id: string | null;
     readonly title: string;
     readonly imageUrl: string;
@@ -17,9 +17,17 @@ declare namespace AppTypes {
   }
   
   // Array Types
-  export type ProductsType = Array<ProductType>;
-  export type CartProductsType = Array<CartProductType> | [];
+  type ProductsType = Array<ProductType>;
+  type CartProductsType = Array<CartProductType>;
   
   // Function Signature Types
-  export type ProductCallback = (products: ProductsType) => void;
+  type ProductCallback = (products?: ProductsType) => void;
+  type CartObjectCallback = (cartDetails?: AppTypes.CartObjectType) => void;
+
+  // Cart Item
+  type CartItemDetails = {
+    id: number | string;
+    newPrice: number;
+    oldPrice: number;
+  };
 }
