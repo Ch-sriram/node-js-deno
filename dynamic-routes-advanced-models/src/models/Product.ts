@@ -27,14 +27,14 @@ export class Product {
 
   private static isProductAndCartTotalPriceInSync(cartItems: AppTypes.CartObjectType, products: AppTypes.ProductsType) {
     const { totalPrice: totalCartPrice, products: cartProducts } = cartItems;
-    let actualTotalPrice = 0;
-    for (const { id, quantity } of cartProducts) {
+    const actualTotalPrice = cartProducts.reduce<number>((previousActualTotal, { id, quantity }) => {
       const matchedProduct = products.find(product => product.id === id);
       if (matchedProduct) {
-        actualTotalPrice += (matchedProduct.price) * quantity;
+        return previousActualTotal + ((matchedProduct.price) * quantity);
       }
-    }
-    return (actualTotalPrice === totalCartPrice ? [true, actualTotalPrice] : [false, actualTotalPrice]) as [boolean, number];
+      return previousActualTotal;
+    }, 0);
+    return [actualTotalPrice === totalCartPrice, actualTotalPrice] as [boolean, number];
   }
   
   save() {

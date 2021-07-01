@@ -10,14 +10,14 @@
     "id": "23456",
     "title": "Pen",
     "imageUrl": "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
-    "price": 5.5,
+    "price": 6,
     "description": "This is a good pen."
   },
   {
     "id": "34567",
     "title": "Modiji",
     "imageUrl": "https://img.etimg.com/thumb/msid-76138042,width-1200,height-900/news/politics-and-nation/70-per-cent-of-people-want-modi-to-be-pm-for-another-term-yediyurappa.jpg",
-    "price": 2.5,
+    "price": 3,
     "description": "Prime Minister of India - Not a good one!!"
   }
 ]
