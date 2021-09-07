@@ -56,7 +56,7 @@ Contents of this section are in **[understanding-basics](https://github.com/Ch-s
 7. Blocking &mdash; `writeFileSync()` & Non-Blocking &mdash; `writeFile()` Code: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/81ccf70ff515d9985d0679b3778c355375edc804)
 8. **[NodeJS &mdash; Behind the Scenes: Single Thread, Event Loop & Blocking Code (Deep Dive)](./understanding-basics/README.md#single-thread-event-loop--blocking-code---in-depth)** 🌟✨ &mdash; __MUST READ!__
 9. Using the Node Modules System &mdash; `exports` & `imports` (ES5/ES6+): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/51a6fb45756fe669a5a5a35dbaeda0063453f4bc)
-10. **[Assignment I](./assignments/assignment-1/README.md#assignment-question)**: **[Solution - I](./assignments/assignment-1/)** & [Solution - II (revision)](./assignments/revision/)
+10. **[Assignment I](./assignments/assignment-1/README.md#assignment-question)**: **[Solution - I](./assignments/assignment-1/)** && **[Solution - II (revision)](./assignments/revision/assignment-1/)**
 11. [Debugging using VS Code's NodeJS Debugger](https://code.visualstudio.com/docs/nodejs/nodejs-debugging): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/21014c85c29f0d9e20d6d021f4025eab6a5853cf) 🌟
 
 ### Express Framework 🚅🌪💨
