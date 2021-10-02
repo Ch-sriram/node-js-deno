@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 1 rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  font-weight: 500;
+}
+
+.header__link,
+.header__link:visited,
+.header__link:active {
+  color: cornflowerblue;
+}
+
+.main {
+  border: 1px solid black;
+  margin-top: 1.5rem;
+  padding: .1rem;
+}
+
+.main__hero-text {
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.51);
+}
+
+.main__image {
+  border: 1px dashed slateblue;
+  padding: .2rem;
+  width: 100rem;
+}
+
+.error {
+  color: darkorange;
+  background-color: black;
+}

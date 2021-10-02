@@ -1,0 +1,32 @@
+{
+  "name": "assignment-3-express-framework-basics",
+  "version": "1.0.0",
+  "description": "express-basics-serving-static-files-express-router-dirname-bodyparser",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "nodemon",
+    "build": "tsc",
+    "start-dev:no-watch": "ts-node src/index.ts"
+  },
+  "keywords": [
+    "express-router",
+    "body-parser",
+    "dirname",
+    "process-mainmodule-filename",
+    "require-main-filename",
+    "express-static-file-serving"
+  ],
+  "author": "Chandrabhatta Sriram",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.10.2",
+    "nodemon": "^2.0.13",
+    "ts-node": "^10.2.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
