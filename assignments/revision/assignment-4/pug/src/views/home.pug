@@ -1,0 +1,16 @@
+extends layouts/main.pug
+
+block styles
+  link(rel="stylesheet", href="/css/home.css")
+
+block content
+  if users.length === 0
+    p.main-info No Recently Added Users Found. Please Add New Users.
+  else
+    p.main-info Last Added User &#8212; #[strong #{users[users.length - 1]}]
+  
+  form.main-form(action="/users", method="POST")
+    .main-form__item
+      label(for="user-name") User Name
+      input#user-name(type="text", name="userName")
+    button.main-form-button(type="submit") Submit

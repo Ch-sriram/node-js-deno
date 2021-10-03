@@ -1,0 +1,26 @@
+.main-users {
+  height: 80%;
+  width: 30%;
+  overflow: auto;
+  border: 1.5px dashed yellowgreen;
+  padding: 1rem;
+  text-align: center;
+}
+
+.main-users__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.main-users__list-item {
+  padding: .4rem;
+  border-bottom: 1px solid white;
+}
+
+.main-users__list-item:last-child {
+  border-bottom: none;
+}

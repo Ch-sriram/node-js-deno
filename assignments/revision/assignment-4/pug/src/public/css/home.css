@@ -1,0 +1,10 @@
+.main-form {
+  width: 60%;
+  height: 40%;
+  border: 2px double white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+}
