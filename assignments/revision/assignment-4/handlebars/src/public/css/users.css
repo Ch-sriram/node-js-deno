@@ -1,0 +1,31 @@
+.users-list-section {
+  padding: 1rem;
+  width: 80%;
+  height: 50%;
+  border: .1rem double sienna;
+  border-radius: .5rem;
+  font-size: var(--large-font-size);
+}
+
+.users-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  overflow: auto;
+}
+
+.users-list__user {
+  width: fit-content;
+  padding: .2rem 0;
+  border-bottom: .1rem solid springgreen;
+}
+
+.users-list__user:last-child {
+  border: none;
+  padding-bottom: 0;
+}

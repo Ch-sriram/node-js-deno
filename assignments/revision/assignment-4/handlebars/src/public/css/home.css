@@ -1,0 +1,20 @@
+.last-user {
+  font-size: var(--large-font-size);
+}
+
+.add-user-form {
+  width: 90%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: .1rem double sienna;
+  border-radius: .5rem;
+  flex-shrink: 1;
+}
+
+.user-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

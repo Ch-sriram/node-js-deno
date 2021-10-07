@@ -108,10 +108,12 @@ Contents of this section are in **[dynamic-content-templating-engines](https://g
       1. Working with **EJS**: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/99ae0cb6618dc39d7f5650f21b246955f35e223d)
       2. Working on the Layout with Partials/Includes using `<%- include(<path>) %>`: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/c40815e07aa389549e8a1b066a7e6342f8c5bff5)
    5. **[Assignment IV](./assignments/assignment-4/images/assignment-4.png)**:
-      1. Solutions using Pug Templates:
+      1. Solutions using Pug Template Engine:
          1. [Solution-I](./assignments/assignment-4/pug/) && [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/3b92efdc0794c3d868b70dea205e1052362adbcb)
          2. Revision &mdash; [Solution-II](./assignments/revision/assignment-4/pug/) && [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6fbb85ab486b7664e1e4954e801f4aa293af2c21)
-      2. Solution using EJS Templates: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/fc14b9fa75bd7ebf835635b3dcfc35871d4af444)
+      2. Solutions using Handlebars Template Engine:
+         1. Revision &mdash; [Solution-I](./assignments/revision/assignment-4/handlebars/)
+      3. Solution using EJS Template Engine: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/fc14b9fa75bd7ebf835635b3dcfc35871d4af444)
 
 ### Models Views & Controllers (MVC)
 

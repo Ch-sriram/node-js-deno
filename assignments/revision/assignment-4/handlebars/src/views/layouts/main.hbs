@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ docTitle }}</title>
+  <link rel="stylesheet" href="/css/main.css">
+  {{#if homeCSS}}<link rel="stylesheet" href="/css/home.css">{{/if}}
+  {{#if usersCSS}}<link rel="stylesheet" href="/css/users.css">{{/if}}
+  {{#if errorCSS}}<link rel="stylesheet" href="/css/error.css">{{/if}}
+</head>
+<body>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__nav-list">
+        <li class="main-header__nav-list-item"><a class="{{#if activeHome}}active{{/if}}" href="/">Home</a></li>
+        <li class="main-header__nav-list-item"><a class="{{#if activeUsers}}active{{/if}}" href="/users">Users</a></li>
+      </ul>
+    </nav>
+  </header>
+  {{{ body }}}
+</body>
+</html>

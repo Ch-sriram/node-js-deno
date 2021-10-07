@@ -1,0 +1,21 @@
+<main class="home">
+  <section class="last-user">
+    {{#if lastAddedUser}}
+      <span>Last Added User: {{lastAddedUser}}</span>
+    {{else}}
+      <span>No users added. Please add a new user.</span>
+    {{/if}}
+  </section>
+  <section class="add-user-form">
+    <form class="user-form" action="/users" method="POST">
+      <div class="user-form__item">
+        <label for="userName">User Name</label>
+        <input type="text" name="userName" id="userName">
+      </div>
+      <button type="submit">Add User</button>
+    </form>
+  </section>
+  <section class="navigate-to-users">
+    <a href="/users">Navigate to Users Page</a>
+  </section>
+</main>

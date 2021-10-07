@@ -1,0 +1,13 @@
+<main class="users">
+  <section class="users-list-section">
+    {{#if areUsersAdded}}
+      <ul class="users-list">
+        {{#each users}}
+          <li class="users-list__user">{{this}}</li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <span class="no-users-info">No users found! Please navigate to <a href="/">Home Page</a> and add new users.</span>
+    {{/if}}
+  </section>
+</main>
