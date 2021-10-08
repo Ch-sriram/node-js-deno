@@ -1,0 +1,17 @@
+.header {
+  height: 10vh;
+  background-color: blueviolet;
+  width: 100%;
+}
+
+.header-nav {
+  height: 100%;
+}
+
+.header-nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: inherit;
+}

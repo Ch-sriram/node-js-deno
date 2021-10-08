@@ -1,0 +1,12 @@
+.users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  border: .3rem solid orchid;
+  border-radius: .5rem;
+  font-size: var(--large-font);
+  font-weight: 500;
+  overflow: auto;
+}

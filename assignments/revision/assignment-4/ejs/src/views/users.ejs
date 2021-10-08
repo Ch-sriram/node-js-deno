@@ -1,0 +1,15 @@
+<%- include('./includes/head.ejs') %>
+  <link rel="stylesheet" href="/css/users.css">
+</head>
+<body>
+  <%- include('./includes/nav.ejs') %>
+  <main class="users">
+    <section class="users-section">
+      <ul class="users-section__list">
+        <% users.forEach(user => { %>
+          <li class="users-section__list-item"><%= user %></li>
+        <% }) %>
+      </ul>
+    </section>
+  </main>
+<%- include('./includes/tail.ejs') %>

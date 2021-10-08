@@ -113,7 +113,9 @@ Contents of this section are in **[dynamic-content-templating-engines](https://g
          2. Revision &mdash; [Solution-II](./assignments/revision/assignment-4/pug/) && [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/6fbb85ab486b7664e1e4954e801f4aa293af2c21)
       2. Solutions using Handlebars Template Engine:
          1. Revision &mdash; [Solution-I](./assignments/revision/assignment-4/handlebars/) && [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/f3a71e5cf960b44b2b9117f531239a224fa2a9c4)
-      3. Solution using EJS Template Engine: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/fc14b9fa75bd7ebf835635b3dcfc35871d4af444)
+      3. Solutions using EJS Template Engine:
+         1. [Solution-I](./assignments/assignment-4/ejs/) && [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/fc14b9fa75bd7ebf835635b3dcfc35871d4af444)
+         2. Revision &mdash; [Solution-II](./assignments/assignment-4/revision/ejs/)
 
 ### Models Views & Controllers (MVC)
 

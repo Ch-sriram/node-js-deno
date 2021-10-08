@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.last-added-user-information {
+  font-size: var(--xl-font);
+}
+
+.users-form {
+  display: flex;
+  font-size: var(--default-font);
+}
+
+.users-navigation {
+  font-size: var(--large-font);
+  background-color: brown;
+}

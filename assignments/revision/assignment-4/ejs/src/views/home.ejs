@@ -1,0 +1,25 @@
+<%- include('./includes/head.ejs') %>
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  <%- include('./includes/nav.ejs') %>
+  <main class="home">
+    <div class="last-added-user-information">
+      <% if (users.length > 0) { %>
+        <span>Last Added User: <strong><%= users[users.length - 1] %></strong></span>
+      <% } else { %>
+        <span>No users added. Please add new users.</span>
+      <% } %>
+    </div>
+    <form action="/users" method="POST" class="users-form">
+      <div class="users-form__item">
+        <label for="userName"></label>
+        <input type="text" name="userName" id="userName">
+      </div>
+      <div class="users-form__item">
+        <button type="submit">Add User</button>
+      </div>
+    </form>
+    <div class="users-navigation"><a href="/users">Navigate to Users Page</a></div>
+  </main>
+<%- include('./includes/tail.ejs') %>
