@@ -21,6 +21,8 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Don't Block the Event Loop - Official NodeJS Docs](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)**
 - **[The Concept of Middleware](https://github.com/Ch-sriram/node-js-deno/blob/main/working-with-express/README.md)**
 - **[What's the Model-View-Controller Architecture?](./model-view-controller/README.md#mvc-model-view-controller-architecture)**
+- **[Why Databases?](./db-intro/README.md#why-databases)** ⭐ **Must Read**
+- **[SQL v/s NoSQL Databases](./db-intro/README.md#sql-vs-nosql)** ⭐ **Must Read**
 
 ## Table of Contents ©
 
@@ -30,6 +32,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Dynamic Content & Templating Engines](#dynamic-content--templating-engines)**
 - **[Models Views & Controllers](#models-views--controllers-mvc)**
 - **[Dynamic Routes & Advanced Models](#dynamic-routes--advanced-models)**
+- **[Databases &mdash; Prerequisites](#databases--prerequisites)**
 
 ### Introduction
 
@@ -37,6 +40,8 @@ Contents of this section are in **[node-first-app](https://github.com/Ch-sriram/
 
 1. First NodeJS App: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/3d01adb458180d2e22eebc510a59b706a9729624)
 2. Writing to a new file using `fs` module with `fs.writeFileSync()` method (Basic Intro): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/76b67ea753649d5743be8c75075e23db0164af78)
+
+[🔝](#table-of-contents-)
 
 ### Understanding Basics
 
@@ -58,6 +63,8 @@ Contents of this section are in **[understanding-basics](https://github.com/Ch-s
 9. Using the Node Modules System &mdash; `exports` & `imports` (ES5/ES6+): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/51a6fb45756fe669a5a5a35dbaeda0063453f4bc)
 10. **[Assignment I](./assignments/assignment-1/README.md#assignment-question)**: **[Solution - I](./assignments/assignment-1/)** && **[Solution - II (revision)](./assignments/revision/assignment-1/)**
 11. [Debugging using VS Code's NodeJS Debugger](https://code.visualstudio.com/docs/nodejs/nodejs-debugging): [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/21014c85c29f0d9e20d6d021f4025eab6a5853cf) 🌟
+
+[🔝](#table-of-contents-)
 
 ### Express Framework 🚅🌪💨
 
@@ -82,6 +89,8 @@ Contents of this section are in **[working-with-express](https://github.com/Ch-s
 17. Styling HTML Pages: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/1c95acc9dd636f519d786ce99cabcb4cf32313ee)
 18. **[Serving Files Statically](./working-with-express/README.md#serving-static-files)** using `express.static()` middleware: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/a4a4623241ee65d72e3cb8942f81255359ad507a)
 19. **[Assignment III](./assignments/assignment-3/README.md#assignment-question)**: **[Solution](./assignments/assignment-3/)** && **[Solution-II (Revision)](./assignments/revision/assignment-3/)** 📜
+
+[🔝](#table-of-contents-)
 
 ### Dynamic Content & Templating Engines
 
@@ -117,6 +126,8 @@ Contents of this section are in **[dynamic-content-templating-engines](https://g
          1. [Solution-I](./assignments/assignment-4/ejs/) && [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/fc14b9fa75bd7ebf835635b3dcfc35871d4af444)
          2. Revision &mdash; [Solution-II](./assignments/revision/assignment-4/ejs/) && [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/77d1246fef518bf31cbbe51c0c8fa7a3367a0642)
 
+[🔝](#table-of-contents-)
+
 ### Models Views & Controllers (MVC)
 
 Contents of this section are in **[model-view-controller](https://github.com/Ch-sriram/node-js-deno/tree/main/model-view-controller)** directory.
@@ -133,6 +144,8 @@ Contents of this section are in **[model-view-controller](https://github.com/Ch-
 10. Displaying Product Data: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/b057803431718b8faf770682ffa3a35c7a41e66b)
 11. Preparing for Editing & Deleting Products: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/56227a19311841b63c7b081e78926c3125a6b183)
 12. Adding another view/route: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/70617578555ab6e15a31f301ffeb73aacc295bbe)
+
+[🔝](#table-of-contents-)
 
 ### Dynamic Routes & Advanced Models
 
@@ -154,3 +167,14 @@ Contents of this section are in **[dynamic-routes-advanced-models](https://githu
    1. Changes in Product Model: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/16a45a87c42f1c374cfb3e2c5c7bb14bbb4c451f)
    2. Deleting Cart Items *i.e.*, Changes in Cart Model: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/d1f5398e292f30f353e20a14c6a8ec8726c9ae37)
 10. Fixing Edit Product Bug In Relation to Cart Pricing: [Commit I - main](https://github.com/Ch-sriram/node-js-deno/commit/212f075234022a65fc15d378549680c12683d570) & [Commit II - for-of loop to reduce function change](https://github.com/Ch-sriram/node-js-deno/commit/df25f80db5099847ec4ff8d68e62e6c32706fdca) &mdash; ⭐⭐ *focus on `save()` changes && new methods in both `Product` and `Cart` models*
+
+[🔝](#table-of-contents-)
+
+### Databases &mdash; Prerequisites
+
+Contents of this section are in **[db-intro](https://github.com/Ch-sriram/node-js-deno/tree/main/db-intro)** directory.
+
+1. **[Why Databases?](./db-intro/README.md#why-databases)** ⭐ **Must Read**
+2. **[SQL v/s NoSQL Databases](./db-intro/README.md#sql-vs-nosql)** ⭐ **Must Read**
+
+[🔝](#table-of-contents-)
