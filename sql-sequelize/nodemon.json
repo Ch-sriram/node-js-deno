@@ -2,6 +2,6 @@
   "watch": ["src"],
   "ext": "ts,json",
   "ignore": ["src/**/*.spec.ts"],
-  "exec": "ts-node-dev ./src/app.ts",
+  "exec": "ts-node ./src/app.ts",
   "_comment_": "https://stackoverflow.com/questions/37979489/how-to-watch-and-reload-ts-node-when-typescript-files-change"
 }
