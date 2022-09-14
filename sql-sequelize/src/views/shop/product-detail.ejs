@@ -1,0 +1,15 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <main class="centered">
+    <h1><%= product.title %></h1>
+    <hr />
+    <div>
+      <img src="<%= product.imageUrl %>" alt="<%= product.title %>" width="30%">
+    </div>
+    <h2>$<%= product.price %></h2>
+    <p><%= product.description %></p>
+    <%- include('../includes/shop/add-to-cart.ejs') %>
+  </main>
+<%- include('../includes/end.ejs') %>

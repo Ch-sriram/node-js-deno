@@ -1,0 +1,46 @@
+<%# 
+  Initially forked from 'views/shop/product-list.ejs' 
+  We'll change the .card__actions, i.e., we won't be trying to 
+  simply 'Add Product' to the Cart, but also be able Edit or
+  Delete the Product from the products catalog altogether, as
+  this is the 'product-list' view for admins.
+%>
+<%- include('../includes/head.ejs') %>
+  <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <main>
+    <% if (products.length <= 0) { %>
+      <h1>No Products</h1>
+    <% } else { %>
+      <h1>My Products</h1>
+      <p>List of all the products...</p>
+      <div class="grid">
+        <% products.forEach(product => { %>
+          <article class="card product-item">
+            <header class="card__header">
+              <h1 class="product__title"><%= product.title %></h1>
+            </header>
+            <div class="card__image">
+              <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+            </div>
+            <div class="card__content">
+              <h2 class="product__price">$<%= product.price %></h2>
+              <p class="product__description"><%= product.description %></p>
+            </div>
+            <div class="card__actions">
+              <!-- Now we'll inject the productId using the `product.id` and then add a query param for the 'Edit' button -->
+              <a href="/admin/edit-product/<%= product.id %>?edit=true" class="btn">Edit</a>
+              <form action="/admin/delete-product" method="POST">
+                <!-- We'll have a hidden form field through which we can extract the `productId` in the controller -->
+                <input type="hidden" name="productId" value="<%= product.id %>" />
+                <button class="btn" type="submit">Delete</button>
+              </form>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+  </main>
+<%- include('../includes/end.ejs') %>

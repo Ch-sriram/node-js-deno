@@ -1,0 +1,49 @@
+<%- include('../includes/head.ejs') %>
+  <link rel="stylesheet" href="/css/forms.css">
+  <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <main>
+    <!--
+      Even the action on the form will be dynamic, meaning, we'll use the `editing` information sent from the controller
+      and change the link to '/admin/add-product' or '/admin/edit-product', depending on whether `editing` is true or false.
+     -->
+    <form class="product-form" action="/admin/<%= editing ? 'edit' : 'add' %>-product" method="POST">
+      <!-- 
+        Now we'll pre-populate the values using the `editing` information as follows:
+        Only when `editing` is true, we'll have a pre-populated value, otherwise, the value attr will be empty
+       -->
+      <div class="form-control">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%= editing ? product.title : undefined %>" required />
+      </div>
+      <div class="form-control">
+        <label for="imageUrl">Image URL</label>
+        <input type="text" name="imageUrl" id="imageUrl" value="<%= editing ? product.imageUrl : undefined %>" required />
+      </div>
+      <div class="form-control">
+        <label for="price">Price</label>
+        <input type="number" step="0.01" name="price" id="price" value="<%= editing ? product.price : undefined %>" required />
+      </div>
+      <div class="form-control">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" rows="5"><%= editing ? product.description : undefined %></textarea>
+      </div>
+      <!-- 
+        We'll add a new hidden input which stores the existing `productId` iff when we're editing the product, i.e., when `editing`
+        information is available from the respective controller for edit route. When the form is submitted, we can use the
+        name of the input to access its value
+       -->
+       <!-- Input name is `productId`, and so in the controller, we can access `req.body.productId` -->
+      <% if (editing)  { %>
+        <input type="hidden" name="productId" value="<%= product.id %>" />
+      <% } %>
+      <!--
+        We've the information about `editing` from both the '/add-product' and '/edit-product' routes. So we can use that information
+        to dynamically render the text on the button as follows:
+      -->
+      <button class="btn" type="submit"><%= editing ? 'Update' : 'Add' %> Product</button>
+    </form>
+  </main>
+<%- include('../includes/end.ejs') %>

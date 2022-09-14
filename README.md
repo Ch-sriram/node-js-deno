@@ -33,6 +33,7 @@ Repository contains concepts and code related to Node JS (Vanilla Node, Express 
 - **[Models Views & Controllers](#models-views--controllers-mvc)**
 - **[Dynamic Routes & Advanced Models](#dynamic-routes--advanced-models)**
 - **[Databases &mdash; Prerequisites](#databases--prerequisites)**
+- **[SQL Introduction](#sql-introduction)**
 
 ### Introduction
 
@@ -176,5 +177,14 @@ Contents of this section are in **[db-intro](https://github.com/Ch-sriram/node-j
 
 1. **[Why Databases?](./db-intro/README.md#why-databases)** ⭐ **Must Read**
 2. **[SQL v/s NoSQL Databases](./db-intro/README.md#sql-vs-nosql)** ⭐ **Must Read**
+
+[🔝](#table-of-contents-)
+
+### SQL Introduction
+
+Contents of this section are in **[sql-sequelize](https://github.com/Ch-sriram/node-js-deno/tree/main/sql-sequelize)** directory.
+
+1. **[Initial Setup of MySQL on Ubuntu 18.04](./sql-sequelize/README.md)**
+<!-- 2. Connecting Our App to the MySQL DB: [Commit Details](); -->
 
 [🔝](#table-of-contents-)

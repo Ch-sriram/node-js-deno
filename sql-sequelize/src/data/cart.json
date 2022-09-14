@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "id": "23456",
+      "quantity": 3
+    },
+    {
+      "id": "34567",
+      "quantity": 1
+    }
+  ],
+  "totalPrice": 21
+}
