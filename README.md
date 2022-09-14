@@ -186,5 +186,6 @@ Contents of this section are in **[sql-sequelize](https://github.com/Ch-sriram/n
 
 1. **[Initial Setup of MySQL on Ubuntu 18.04](./sql-sequelize/README.md)**
 2. Connecting Our App to the MySQL DB & Basic Retrieval: [Commit Details](https://github.com/Ch-sriram/node-js-deno/commit/d87ed0e28604168358f78c6637bfeb661dec6ce3);
+<!-- 3. Basic Retrieval & Updation from Tables using `mysql2`: [Commit Details]() -->
 
 [🔝](#table-of-contents-)

@@ -1,5 +1,5 @@
 /// <reference path="../types/product.d.ts" />
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, RequestHandler } from 'express';
 import routes from '../routes';
 import Product from '../models/Product';
 
@@ -18,13 +18,20 @@ export const getAddProduct = (_: Request, res: Response) => (
 );
 
 // POST: 'admin/add-product' route's controller: Adds a Product
-export const postAddProduct = (req: Request, res: Response, _: NextFunction) => {
+export const postAddProduct: RequestHandler = (req, res, next) => {
   const { title, imageUrl, price, description } = req.body;
   if (title !== '' && imageUrl !== '' && price !== '' && description !== '') {
     const product = new Product(null, title, imageUrl, price, description);
-    product.save();
+    product.save()
+      .then(() => res.redirect(routes.shop.root))
+      .catch(err => {
+        console.log(err);
+        next(err);
+      });
+  } else {
+    const err = new Error('Provided product has empty fields!');
+    next(err);
   }
-  res.redirect(routes.shop.root);
 };
 
 // GET: 'admin/edit-product' route's controller: Edits a Product
@@ -63,23 +70,23 @@ export const getEditProduct = (req: Request, res: Response) => {
    * which is sent as the dynamic segment to the `edit-product/:productId` route
    */
 
-  const { productId } = req.params;
+  // const { productId } = req.params;
 
-  Product.findProductById(productId, products => {
-    if (products) {
-      const product = products[0];
-      if (!product) {
-        // we should actually show an error, but for now, we're redirecting to '/' route, which is the `shop.root` route
-        return res.redirect(routes.shop.root);
-      }
-      return res.render('admin/add-edit-product', {
-        docTitle: 'Admin | Edit Product',
-        path: routes.admin.root + routes.admin.editProduct.root,
-        editing: editMode,
-        product
-      });
-    }
-  });
+  // Product.findProductById(productId, products => {
+  //   if (products) {
+  //     const product = products[0];
+  //     if (!product) {
+  //       // we should actually show an error, but for now, we're redirecting to '/' route, which is the `shop.root` route
+  //       return res.redirect(routes.shop.root);
+  //     }
+  //     return res.render('admin/add-edit-product', {
+  //       docTitle: 'Admin | Edit Product',
+  //       path: routes.admin.root + routes.admin.editProduct.root,
+  //       editing: editMode,
+  //       product
+  //     });
+  //   }
+  // });
 };
 
 export const postEditProduct = (req: Request, res: Response) => {
@@ -104,18 +111,18 @@ export const postDeleteProduct = (req: Request, res: Response) => {
 
 // GET: 'admin/add-product' route's controller: renders Add Product form
 export const getProducts = (_: Request, res: Response, __: NextFunction) => {
-  Product.fetchAllProducts(products => {
-    if (products) {
-      console.log('admin.ts', products);
-      setTimeout(() => {
-        res.render('admin/product-list', {
-          products,
-          docTitle: 'Admin | Products',
-          path: routes.admin.root + routes.admin.products
-        });
-      });
-    }
-  });
+  // Product.fetchAllProducts(products => {
+  //   if (products) {
+  //     console.log('admin.ts', products);
+  //     setTimeout(() => {
+  //       res.render('admin/product-list', {
+  //         products,
+  //         docTitle: 'Admin | Products',
+  //         path: routes.admin.root + routes.admin.products
+  //       });
+  //     });
+  //   }
+  // });
 };
 
 export default {
